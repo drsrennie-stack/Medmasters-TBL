@@ -444,6 +444,9 @@ a { color: inherit; }
   text-transform: uppercase;
   text-align: center;
   margin-top: auto;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
 }
 
 .cta-outline {
@@ -909,7 +912,7 @@ a { color: inherit; }
 
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 40px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(245, 241, 232, 0.15);
@@ -1179,7 +1182,7 @@ a { color: inherit; }
         <li>Canvas-ready embed</li>
         <li>Your content, your branding</li>
       </ul>
-      <div class="vl-cta cta-outline">Reserve a seat</div>
+      <a href="programs.html#lab" class="vl-cta cta-outline">Reserve a seat</a>
     </div>
 
     <div class="vl-card featured">
@@ -1196,7 +1199,7 @@ a { color: inherit; }
         <li>Faculty cohort + peer review</li>
         <li>Template library + checklist</li>
       </ul>
-      <div class="vl-cta cta-tc">Apply for next cohort</div>
+      <a href="programs.html#sprint" class="vl-cta cta-tc">Apply for next cohort</a>
     </div>
 
     <div class="vl-card">
@@ -1213,7 +1216,7 @@ a { color: inherit; }
         <li>Complete course pathway</li>
         <li>Priority community access</li>
       </ul>
-      <div class="vl-cta cta-nv">Schedule a fit call</div>
+      <a href="programs.html#annual" class="vl-cta cta-nv">Schedule a fit call</a>
     </div>
   </div>
   <div class="vl-aside">Need a custom 90-minute intensive? <a>Book a 1:1 →</a></div>
@@ -1306,7 +1309,7 @@ a { color: inherit; }
         <div class="faq-q">Is the output accessible? WCAG 2.1 and Section 508?</div>
         <div class="faq-toggle">+</div>
       </summary>
-      <div class="faq-a">Yes. Every artifact ships with a companion document containing full text content, semantic structure, and screen-reader support. Color contrast, keyboard navigation, and alt-text are built into the interactive artifact itself. You can submit the deliverable to your institution's accessibility review.</div>
+      <div class="faq-a">We design every artifact to meet WCAG 2.1 and Section 508 standards. The interactive artifact uses semantic HTML, color contrast, keyboard navigation, and alt-text. Every deliverable includes a companion document with full text content and screen-reader-friendly structure. We do not certify formal compliance, since institutional accessibility standards and audit processes vary. If your institution's accessibility review identifies issues, we will revise the artifact at no additional cost or provide an alternative deliverable that meets your institutional requirements.</div>
     </details>
     
     <details class="faq-item">
@@ -1399,10 +1402,9 @@ a { color: inherit; }
     </div>
     <div>
       <div class="footer-col-header">Programs</div>
-      <a class="footer-link">Project Lab</a>
-      <a class="footer-link">Project Sprint</a>
-      <a class="footer-link">Annual Member</a>
-      <a class="footer-link">1:1 sessions</a>
+      <a class="footer-link" href="programs.html#lab">Project Lab</a>
+      <a class="footer-link" href="programs.html#sprint">Project Sprint</a>
+      <a class="footer-link" href="programs.html#annual">Annual Member</a>
     </div>
     <div>
       <div class="footer-col-header">Resources</div>
@@ -1413,7 +1415,7 @@ a { color: inherit; }
     </div>
     <div>
       <div class="footer-col-header">Connect</div>
-      <a class="footer-link" href="mailto:srennie@medmasterscollaborative.com">Email Sharilyn</a>
+      <a class="footer-link" href="mailto:srennie@medmasterscollaborative.com">Email</a>
       <a class="footer-link" href="#">Cohort calendar</a>
       <div class="footer-social">
         <a href="https://www.facebook.com/profile.php?id=61589619240720" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
@@ -1424,15 +1426,16 @@ a { color: inherit; }
         </a>
       </div>
     </div>
+    <div>
+      <div class="footer-col-header">Legal &amp; policies</div>
+      <a class="footer-link" href="https://www.medmasterscollaborative.com/medmasters-collaborative-privacy-policy">Privacy policy</a>
+      <a class="footer-link" href="https://www.medmasterscollaborative.com/medmasters-collaborative-terms-of-service">Terms of service</a>
+    </div>
   </div>
   
   <div class="footer-bottom">
-    <div class="footer-copyright">© 2026 MedMasters Collaborative</div>
+    <div class="footer-copyright">© 2026 MedMasters Collaborative LLC</div>
     <div class="footer-cohort">Founding cohort · Fall 2026</div>
-    <div class="footer-legal">
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </div>
   </div>
 </div>
 
