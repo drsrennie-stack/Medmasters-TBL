@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coming Soon · MedMasters Collaborative</title>
+<meta name="description" content="This offer is launching soon. In the meantime, see our other programs or join the free TBL primer.">
+<meta name="robots" content="noindex, nofollow">
+
+<style>
+@import url('https://cdn.jsdelivr.net/npm/@fontsource-variable/plus-jakarta-sans/index.css');
+
+* { box-sizing: border-box; }
+
+/* ============ ACCESSIBILITY: KEYBOARD FOCUS ============ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #8B3A2E;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 8px;
+  background: #0B1530;
+  color: #F5F1E8;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 4px;
+  z-index: 9999;
+  letter-spacing: 0.04em;
+}
+.skip-link:focus { top: 8px; }
+
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif;
+  background: #FFFFFF;
+  color: #0B1530;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+a:visited { color: inherit; }
+
+/* ============ SITE HEADER ============ */
+.site-header {
+  background: #FFFFFF;
+  padding: 32px max(40px, 5vw);
+  border-bottom: 0.5px solid rgba(11, 21, 48, 0.08);
+}
+.site-logo { display: inline-block; text-decoration: none; }
+.site-logo svg { height: 100px; width: auto; }
+
+/* ============ MAIN ============ */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============ HERO ============ */
+.cs-hero {
+  padding: 96px max(40px, 5vw) 56px;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+.cs-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.cs-headline {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin: 0 0 28px;
+}
+.cs-headline .accent { color: #8B3A2E; }
+.cs-lede {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(11, 21, 48, 0.78);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ============ ALTERNATIVE ACTIONS ============ */
+.cs-actions {
+  padding: 8px max(20px, 4vw) 96px;
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+}
+.cs-actions-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.cs-actions-headline {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin: 0 0 40px;
+}
+.cs-actions-headline .accent { color: #8B3A2E; }
+
+.cs-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.cs-card {
+  background: #FFFFFF;
+  border: 0.5px solid rgba(11, 21, 48, 0.10);
+  border-radius: 14px;
+  padding: 32px 28px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 2px 12px rgba(11, 21, 48, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.cs-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(11, 21, 48, 0.08);
+  border-color: rgba(11, 21, 48, 0.16);
+}
+.cs-card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.cs-card-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0B1530;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+.cs-card-body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(11, 21, 48, 0.7);
+  flex: 1;
+  margin-bottom: 8px;
+}
+.cs-card-link {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  align-self: flex-start;
+}
+
+/* ============ FOOTER ============ */
+.site-footer {
+  background: #FFFFFF;
+  padding: 48px max(40px, 5vw);
+  border-top: 0.5px solid rgba(11, 21, 48, 0.10);
+}
+.site-footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-nav {
+  display: flex;
+  gap: 24px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  flex-wrap: wrap;
+}
+.footer-nav a {
+  color: #8B3A2E;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid currentColor;
+}
+.footer-nav a:hover { color: #0B1530; }
+.footer-copyright {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(11, 21, 48, 0.5);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ============ MOBILE ============ */
+@media (max-width: 800px) {
+  .cs-hero { padding: 64px 24px 40px; }
+  .cs-headline { font-size: 34px; }
+  .cs-actions { padding: 8px 24px 64px; }
+  .cs-actions-headline { font-size: 22px; }
+  .cs-card-grid { grid-template-columns: 1fr; }
+  .site-logo svg { height: 60px; }
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ============ SITE HEADER ============ -->
+<header class="site-header">
+  <a href="index.html" class="site-logo" aria-label="MedMasters Collaborative home">
+    <svg viewBox="0 0 720 200" role="img" aria-hidden="true">
+      <g transform="translate(0, 18)">
+        <g transform="translate(60, 0) rotate(8 0 130)"><circle cx="0" cy="20" r="10" fill="#0B1530"/><path d="M 0,32 C -10,32 -16,36 -16,42 C -16,55 -13,68 -11,82 C -10,100 -12,118 -14,130 L 14,130 C 12,118 10,100 11,82 C 13,68 16,55 16,42 C 16,36 10,32 0,32 Z" fill="#0B1530"/></g>
+        <g transform="translate(100, 0)"><circle cx="0" cy="10" r="11" fill="#8B3A2E"/><path d="M 0,22 C -11,22 -17,26 -17,34 C -17,52 -14,70 -12,86 C -11,108 -13,122 -15,132 L 15,132 C 13,122 11,108 12,86 C 14,70 17,52 17,34 C 17,26 11,22 0,22 Z" fill="#8B3A2E"/></g>
+        <g transform="translate(140, 0) rotate(-8 0 130)"><circle cx="0" cy="20" r="10" fill="#C9A14A"/><path d="M 0,32 C -10,32 -16,36 -16,42 C -16,55 -13,68 -11,82 C -10,100 -12,118 -14,130 L 14,130 C 12,118 10,100 11,82 C 13,68 16,55 16,42 C 16,36 10,32 0,32 Z" fill="#C9A14A"/></g>
+      </g>
+      <g transform="translate(240, 0)">
+        <text x="0" y="118" font-size="80" font-weight="800" letter-spacing="-2" font-family="'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif"><tspan fill="#0B1530">Med</tspan><tspan fill="#8B3A2E">Masters</tspan></text>
+        <text x="0" y="165" font-size="22" font-weight="700" letter-spacing="6" fill="#0B1530" opacity="0.78" font-family="'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif">COLLABORATIVE</text>
+      </g>
+    </svg>
+  </a>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="cs-hero">
+  <div class="cs-eyebrow">Coming soon</div>
+  <h1 class="cs-headline">We're putting the <span class="accent">final touches</span> on this one.</h1>
+  <p class="cs-lede">This offer is launching ahead of the founding cohort on July 16, 2026. We're testing it carefully before opening enrollment so the first faculty in get a polished experience. Want first access? Join the free TBL primer below and you'll be notified the moment this opens.</p>
+</section>
+
+<!-- ============ ALTERNATIVE ACTIONS ============ -->
+<section class="cs-actions">
+  <div class="cs-actions-eyebrow">In the meantime</div>
+  <h2 class="cs-actions-headline">Three places worth your <span class="accent">90 seconds</span>.</h2>
+  
+  <div class="cs-card-grid">
+    
+    <a href="https://www.medmasterscollaborative.com/free-primer" class="cs-card">
+      <div class="cs-card-tag">Free · Recommended</div>
+      <div class="cs-card-title">Start the TBL primer</div>
+      <div class="cs-card-body">Five short emails on Team-Based Learning fundamentals, plus a free Course Branding Tool on Day 1. Founding cohort members are notified first when each Project Lab opens.</div>
+      <span class="cs-card-link">Get the primer →</span>
+    </a>
+    
+    <a href="schedule.html" class="cs-card">
+      <div class="cs-card-tag">Cohort schedule</div>
+      <div class="cs-card-title">See all Project Lab dates</div>
+      <div class="cs-card-body">Eight Project Lab sessions running July through December 2026. Browse session topics, dates, and prices. Some are already open for enrollment.</div>
+      <span class="cs-card-link">View the schedule →</span>
+    </a>
+    
+    <a href="programs.html" class="cs-card">
+      <div class="cs-card-tag">All three tiers</div>
+      <div class="cs-card-title">Compare the programs</div>
+      <div class="cs-card-body">Project Lab, Project Sprint, and Annual Member. Read the full breakdown of what each tier produces, what's included, and who each one is for.</div>
+      <span class="cs-card-link">Explore programs →</span>
+    </a>
+    
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="https://www.medmasterscollaborative.com/free-primer">Free primer</a>
+    </nav>
+    <div class="footer-copyright">© 2026 MedMasters Collaborative LLC</div>
+  </div>
+</footer>
+
+</body>
+</html>
