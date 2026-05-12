@@ -3,99 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fall 2026 Project Lab Schedule · MedMasters Collaborative</title>
+<title>Project Lab Schedule · MedMasters Collaborative</title>
+<meta name="description" content="Eight Project Lab sessions running July through December 2026. Founding cohort opens July 16. Each session produces one deployable Canvas-ready component for your TBL teaching.">
 
 <style>
 @import url('https://cdn.jsdelivr.net/npm/@fontsource-variable/plus-jakarta-sans/index.css');
 
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
 body {
   font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif;
-  background: #F7F7F8;
+  background: #FFFFFF;
   color: #0B1530;
   line-height: 1.5;
 }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
 
-.doc-header {
-  padding: 56px max(40px, 5vw) 32px;
-  max-width: 900px;
+/* ============ SITE HEADER ============ */
+.site-header {
+  background: #FFFFFF;
+  padding: 32px max(40px, 5vw);
+  border-bottom: 0.5px solid rgba(11, 21, 48, 0.08);
+}
+.site-logo { display: inline-block; text-decoration: none; }
+.site-logo svg { height: 100px; width: auto; }
+
+/* ============ PAGE HERO ============ */
+.page-hero {
+  padding: 88px max(40px, 5vw) 48px;
+  max-width: 1080px;
   margin: 0 auto;
 }
-.doc-eyebrow {
+.page-eyebrow {
   font-size: 11px;
   font-weight: 700;
   color: #8B3A2E;
   letter-spacing: 0.30em;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
-.doc-title {
-  font-size: 42px;
+.page-headline {
+  font-size: 56px;
   font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  margin: 0 0 16px;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin: 0 0 26px;
+  max-width: 880px;
 }
-.doc-title .accent { color: #8B3A2E; }
-.doc-sub {
-  font-size: 15px;
-  font-weight: 400;
-  color: rgba(11, 21, 48, 0.7);
-  line-height: 1.6;
-  max-width: 640px;
-}
-.doc-meta {
-  font-size: 10px;
-  font-weight: 700;
-  color: rgba(11, 21, 48, 0.45);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  margin-top: 24px;
-}
-
-/* ===== summary strip ===== */
-.summary-strip {
-  max-width: 900px;
-  margin: 0 auto 16px;
-  padding: 0 max(40px, 5vw);
-}
-.summary-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  background: #FFFFFF;
-  border: 0.5px solid rgba(11, 21, 48, 0.08);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(11, 21, 48, 0.04);
-}
-.summary-cell {
-  padding: 22px 20px;
-  border-right: 0.5px solid rgba(11, 21, 48, 0.08);
-}
-.summary-cell:last-child { border-right: none; }
-.summary-label {
-  font-size: 9px;
-  font-weight: 700;
-  color: rgba(11, 21, 48, 0.5);
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.summary-value {
+.page-headline .accent { color: #8B3A2E; }
+.page-lede {
   font-size: 18px;
-  font-weight: 800;
-  color: #0B1530;
-  letter-spacing: -0.015em;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(11, 21, 48, 0.78);
+  max-width: 680px;
+  margin: 0;
 }
-.summary-value .accent { color: #8B3A2E; }
 
-/* ===== sessions ===== */
-.sessions {
-  padding: 24px max(20px, 4vw) 40px;
-  max-width: 900px;
+/* ============ COHORT SECTIONS ============ */
+.cohort-section {
+  padding: 16px max(40px, 5vw) 80px;
+  max-width: 1080px;
   margin: 0 auto;
+}
+.cohort-section.founding { padding-bottom: 24px; }
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid rgba(11, 21, 48, 0.10);
 }
 .section-eyebrow {
   font-size: 11px;
@@ -103,344 +85,702 @@ body {
   color: #8B3A2E;
   letter-spacing: 0.30em;
   text-transform: uppercase;
-  margin: 24px 0 14px;
-  padding-left: max(20px, 1vw);
 }
+.section-headline {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 8px 0 0;
+}
+.section-headline .accent { color: #8B3A2E; }
+.section-meta {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(11, 21, 48, 0.65);
+  text-align: right;
+}
+.section-meta strong { color: #0B1530; font-weight: 700; }
+
+/* ============ SESSION CARDS ============ */
+.session-grid {
+  display: grid;
+  gap: 16px;
+}
+
 .session-card {
   background: #FFFFFF;
-  border: 0.5px solid rgba(11, 21, 48, 0.08);
-  border-radius: 12px;
-  padding: 28px 32px;
-  margin-bottom: 14px;
-  box-shadow: 0 2px 10px rgba(11, 21, 48, 0.04);
+  border: 0.5px solid rgba(11, 21, 48, 0.10);
+  border-radius: 14px;
+  padding: 32px 36px;
   display: grid;
   grid-template-columns: 100px 1fr auto;
   gap: 32px;
   align-items: center;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 2px 12px rgba(11, 21, 48, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .session-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 28px rgba(11, 21, 48, 0.08);
-  border-color: rgba(11, 21, 48, 0.14);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(11, 21, 48, 0.08);
+  border-color: rgba(11, 21, 48, 0.16);
 }
-.session-card.opener {
-  border-color: rgba(139, 58, 46, 0.30);
+.session-card.founding {
+  border-color: rgba(139, 58, 46, 0.25);
   background: #FFFCFA;
 }
-.session-num {
-  font-size: 56px;
-  font-weight: 800;
-  color: #8B3A2E;
-  letter-spacing: -0.03em;
-  line-height: 0.9;
-  text-align: center;
+.session-card.founding:hover {
+  border-color: rgba(139, 58, 46, 0.45);
 }
-.session-content { min-width: 0; }
-.session-date {
-  font-size: 11px;
-  font-weight: 700;
-  color: #8B3A2E;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-.session-topic {
-  font-size: 20px;
-  font-weight: 800;
-  color: #0B1530;
-  letter-spacing: -0.015em;
-  margin-bottom: 4px;
-}
-.session-meta {
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(11, 21, 48, 0.65);
-}
-.session-tag {
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  border-radius: 3px;
-}
-.session-tag.opener { background: #8B3A2E; color: #FFFFFF; }
-.session-tag.main { background: rgba(11, 21, 48, 0.08); color: #0B1530; }
-.session-tag.encore { background: rgba(201, 161, 74, 0.18); color: #8B6D2A; }
 
-/* ===== aside boxes ===== */
-.aside {
-  max-width: 900px;
-  margin: 32px auto;
-  padding: 0 max(20px, 4vw);
+.session-date-block {
+  text-align: center;
+  padding-right: 28px;
+  border-right: 0.5px solid rgba(11, 21, 48, 0.10);
 }
-.aside-card {
-  background: #FFFFFF;
-  border: 0.5px solid rgba(11, 21, 48, 0.08);
-  border-radius: 12px;
-  padding: 28px 32px;
-  box-shadow: 0 2px 10px rgba(11, 21, 48, 0.04);
-}
-.aside-card.warn {
-  border-left: 3px solid #C9A14A;
-}
-.aside-eyebrow {
+.session-month {
   font-size: 10px;
   font-weight: 800;
   color: #8B3A2E;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 2px;
 }
-.aside-title {
-  font-size: 18px;
+.session-day {
+  font-size: 44px;
   font-weight: 800;
-  letter-spacing: -0.01em;
-  margin: 0 0 12px;
+  color: #0B1530;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
 }
-.aside-body {
-  font-size: 14px;
-  line-height: 1.65;
-  color: rgba(11, 21, 48, 0.8);
+.session-weekday {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(11, 21, 48, 0.55);
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  margin-top: 4px;
 }
-.aside-body p { margin: 0 0 10px; }
-.aside-body p:last-child { margin-bottom: 0; }
-.aside-body ol, .aside-body ul { margin: 0 0 10px; padding-left: 20px; }
-.aside-body li { margin-bottom: 6px; }
-.aside-body strong { font-weight: 700; color: #0B1530; }
 
-/* ===== timeline ===== */
-.timeline {
-  margin-top: 12px;
+.session-content { min-width: 0; }
+.session-tier-tag {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
-.timeline-row {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 16px;
-  padding: 10px 0;
-  border-top: 0.5px solid rgba(11, 21, 48, 0.08);
+.session-tier-tag.founding-tag { background: #8B3A2E; color: #FFFFFF; }
+.session-tier-tag.fall-tag { background: rgba(11, 21, 48, 0.08); color: #0B1530; }
+.session-tier-tag.encore-tag { background: rgba(201, 161, 74, 0.20); color: #8B6D2A; }
+
+.session-topic {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0B1530;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.session-blurb {
   font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(11, 21, 48, 0.7);
+  margin-bottom: 12px;
+  max-width: 600px;
 }
-.timeline-row:first-child { border-top: none; }
-.timeline-when {
+.session-time {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(11, 21, 48, 0.6);
+  letter-spacing: 0.02em;
+}
+
+.session-action {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  min-width: 130px;
+}
+.session-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0B1530;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+.session-price .alt {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(11, 21, 48, 0.5);
+  margin-top: 4px;
+  letter-spacing: 0;
+}
+.session-enroll {
+  background: #8B3A2E;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 4px;
   font-size: 10px;
   font-weight: 800;
-  color: #8B3A2E;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
-  padding-top: 3px;
+  text-decoration: none;
+  transition: background 0.15s;
+  white-space: nowrap;
 }
-.timeline-what {
+.session-enroll:hover { background: #a04539; }
+
+.session-enroll.bundle {
+  background: #0B1530;
+}
+.session-enroll.bundle:hover { background: #1a2645; }
+
+/* ============ FOUNDING BUNDLE CARD ============ */
+.bundle-card {
+  background: #060A18;
+  color: #F5F1E8;
+  border-radius: 14px;
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+  margin-top: 16px;
+}
+.bundle-eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  color: #C9A14A;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.bundle-headline {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin: 0 0 8px;
+}
+.bundle-headline .accent { color: #8B3A2E; }
+.bundle-blurb {
   font-size: 14px;
-  color: rgba(11, 21, 48, 0.82);
+  font-weight: 400;
+  opacity: 0.78;
   line-height: 1.55;
+  margin: 0;
+  max-width: 580px;
+}
+.bundle-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+.bundle-price {
+  font-size: 26px;
+  font-weight: 800;
+  color: #F5F1E8;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+.bundle-price .alt {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #C9A14A;
+  margin-top: 4px;
+  letter-spacing: 0;
 }
 
+/* ============ INFO STRIP ============ */
+.info-strip {
+  background: #FBFAF7;
+  padding: 56px max(40px, 5vw);
+  border-top: 0.5px solid rgba(11, 21, 48, 0.10);
+  border-bottom: 0.5px solid rgba(11, 21, 48, 0.10);
+}
+.info-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.info-cell {
+  text-align: left;
+}
+.info-label {
+  font-size: 9px;
+  font-weight: 800;
+  color: #8B3A2E;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.info-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0B1530;
+  letter-spacing: -0.005em;
+  line-height: 1.4;
+}
+.info-value .accent { color: #8B3A2E; }
+.info-detail {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(11, 21, 48, 0.6);
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+/* ============ OTHER PROGRAMS ============ */
+.other-programs {
+  padding: 72px max(40px, 5vw);
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+.other-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.other-headline {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 36px;
+}
+.other-headline .accent { color: #8B3A2E; }
+.other-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  text-align: left;
+}
+.other-card {
+  background: #FFFFFF;
+  border: 0.5px solid rgba(11, 21, 48, 0.10);
+  border-radius: 12px;
+  padding: 32px;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 2px 10px rgba(11, 21, 48, 0.04);
+}
+.other-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(11, 21, 48, 0.08);
+  border-color: rgba(11, 21, 48, 0.16);
+}
+.other-tier {
+  font-size: 10px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.other-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0B1530;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+}
+.other-blurb {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(11, 21, 48, 0.7);
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+.other-link {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+/* ============ SITE FOOTER ============ */
+.site-footer {
+  background: #FFFFFF;
+  padding: 56px max(40px, 5vw);
+  border-top: 0.5px solid rgba(11, 21, 48, 0.10);
+}
+.site-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-logo svg { height: 60px; width: auto; }
+.footer-nav {
+  display: flex;
+  gap: 24px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.footer-nav a {
+  color: #8B3A2E;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid currentColor;
+}
+.footer-nav a:hover { color: #0B1530; }
+.footer-copyright {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(11, 21, 48, 0.5);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ============ MOBILE ============ */
 @media (max-width: 800px) {
-  .doc-title { font-size: 32px; }
-  .summary-grid { grid-template-columns: repeat(2, 1fr); }
-  .summary-cell:nth-child(2) { border-right: none; }
-  .summary-cell:nth-child(1), .summary-cell:nth-child(2) { border-bottom: 0.5px solid rgba(11, 21, 48, 0.08); }
-  .session-card { grid-template-columns: 60px 1fr; gap: 18px; padding: 22px; }
-  .session-tag { grid-column: 1 / -1; justify-self: start; margin-top: 8px; }
-  .session-num { font-size: 36px; }
-  .session-topic { font-size: 17px; }
-  .timeline-row { grid-template-columns: 1fr; gap: 4px; }
+  .page-headline { font-size: 36px; }
+  .section-headline { font-size: 24px; }
+  .session-card {
+    grid-template-columns: 1fr;
+    padding: 24px 22px;
+    gap: 18px;
+  }
+  .session-date-block {
+    text-align: left;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 0.5px solid rgba(11, 21, 48, 0.10);
+    padding-bottom: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+  }
+  .session-day { font-size: 32px; }
+  .session-action {
+    text-align: left;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .session-topic { font-size: 18px; }
+  .bundle-card { grid-template-columns: 1fr; padding: 24px 22px; }
+  .bundle-action { align-items: flex-start; flex-direction: row; justify-content: space-between; width: 100%; }
+  .info-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .other-cards { grid-template-columns: 1fr; }
+  .site-logo svg { height: 60px; }
+  .site-footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-logo svg { height: 44px; }
 }
 </style>
 </head>
 <body>
 
-<div class="doc-header">
-  <div class="doc-eyebrow">Project Lab Schedule · LOCKED</div>
-  <h1 class="doc-title">Summer founding cohort &amp; <span class="accent">Fall 2026</span> Project Labs.</h1>
-  <p class="doc-sub">Seven sessions total. One summer founding cohort opener (Course Hub Builder, $87 for life), then six Fall Project Labs at $147 standard or $87 alumni rate for founding cohort members. All sessions Thursdays at 4:00pm PT / 7:00pm ET. Eight seats per session. Enrollment opens July 1, 2026.</p>
-  <div class="doc-meta">Locked schedule · May 12, 2026</div>
-</div>
+<!-- ============ SITE HEADER ============ -->
+<header class="site-header">
+  <a href="index.html" class="site-logo" aria-label="MedMasters Collaborative home">
+    <svg viewBox="0 0 720 200">
+      <g transform="translate(0, 18)">
+        <g transform="translate(60, 0) rotate(8 0 130)"><circle cx="0" cy="20" r="10" fill="#0B1530"/><path d="M 0,32 C -10,32 -16,36 -16,42 C -16,55 -13,68 -11,82 C -10,100 -12,118 -14,130 L 14,130 C 12,118 10,100 11,82 C 13,68 16,55 16,42 C 16,36 10,32 0,32 Z" fill="#0B1530"/></g>
+        <g transform="translate(100, 0)"><circle cx="0" cy="10" r="11" fill="#8B3A2E"/><path d="M 0,22 C -11,22 -17,26 -17,34 C -17,52 -14,70 -12,86 C -11,108 -13,122 -15,132 L 15,132 C 13,122 11,108 12,86 C 14,70 17,52 17,34 C 17,26 11,22 0,22 Z" fill="#8B3A2E"/></g>
+        <g transform="translate(140, 0) rotate(-8 0 130)"><circle cx="0" cy="20" r="10" fill="#C9A14A"/><path d="M 0,32 C -10,32 -16,36 -16,42 C -16,55 -13,68 -11,82 C -10,100 -12,118 -14,130 L 14,130 C 12,118 10,100 11,82 C 13,68 16,55 16,42 C 16,36 10,32 0,32 Z" fill="#C9A14A"/></g>
+      </g>
+      <g transform="translate(240, 0)">
+        <text x="0" y="118" font-size="80" font-weight="800" letter-spacing="-2" font-family="'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif"><tspan fill="#0B1530">Med</tspan><tspan fill="#8B3A2E">Masters</tspan></text>
+        <text x="0" y="165" font-size="22" font-weight="700" letter-spacing="6" fill="#0B1530" opacity="0.78" font-family="'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif">COLLABORATIVE</text>
+      </g>
+    </svg>
+  </a>
+</header>
 
-<div class="summary-strip">
-  <div class="summary-grid">
-    <div class="summary-cell">
-      <div class="summary-label">Sessions</div>
-      <div class="summary-value">7 total</div>
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="page-eyebrow">Project Lab Schedule</div>
+  <h1 class="page-headline">Eight sessions. <span class="accent">July through December 2026.</span></h1>
+  <p class="page-lede">Each Project Lab is 90 minutes. You bring your course content. You leave with one deployable, Canvas-ready component you can use immediately. All sessions on Thursdays at 5:00pm PT / 8:00pm ET.</p>
+</section>
+
+<!-- ============ INFO STRIP ============ -->
+<section class="info-strip">
+  <div class="info-grid">
+    <div class="info-cell">
+      <div class="info-label">Format</div>
+      <div class="info-value">90-min live sessions</div>
+      <div class="info-detail">Online via Zoom. Recording included.</div>
     </div>
-    <div class="summary-cell">
-      <div class="summary-label">Seats</div>
-      <div class="summary-value">8 per session</div>
+    <div class="info-cell">
+      <div class="info-label">Time</div>
+      <div class="info-value"><span class="accent">5:00pm PT</span></div>
+      <div class="info-detail">8:00pm ET. After-dinner timing for both coasts.</div>
     </div>
-    <div class="summary-cell">
-      <div class="summary-label">Duration</div>
-      <div class="summary-value">90 min each</div>
+    <div class="info-cell">
+      <div class="info-label">Cohort size</div>
+      <div class="info-value">8 faculty</div>
+      <div class="info-detail">Intimate. Real peer interaction.</div>
     </div>
-    <div class="summary-cell">
-      <div class="summary-label">Time slot</div>
-      <div class="summary-value"><span class="accent">4:00pm PT</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="sessions">
-
-  <div class="section-eyebrow">Summer founding cohort · $87 founding rate</div>
-
-  <div class="session-card opener">
-    <div class="session-num">00</div>
-    <div class="session-content">
-      <div class="session-date">Thursday · July 23, 2026 · 4:00pm PT / 7:00pm ET</div>
-      <div class="session-topic">Course Hub Builder</div>
-      <div class="session-meta">Founding cohort opener. $87 for life. Build the Canvas course-level architecture every other Lab plugs into. Attendees lock $87 alumni pricing on every future Project Lab forever.</div>
-    </div>
-    <div class="session-tag opener">Founding cohort</div>
-  </div>
-
-  <div class="section-eyebrow">Fall open enrollment · $147 standard · $87 alumni</div>
-
-  <div class="session-card">
-    <div class="session-num">01</div>
-    <div class="session-content">
-      <div class="session-date">Thursday · September 17, 2026 · 4:00pm PT / 7:00pm ET</div>
-      <div class="session-topic">Essay &amp; Long-Answer Grading Tool</div>
-      <div class="session-meta">Build a rubric-based grading tool for essay and long-form answer questions. Save PDF per student, send directly. Your favorite easy first build.</div>
-    </div>
-    <div class="session-tag main">Main</div>
-  </div>
-
-  <div class="session-card">
-    <div class="session-num">02</div>
-    <div class="session-content">
-      <div class="session-date">Thursday · October 1, 2026 · 4:00pm PT / 7:00pm ET</div>
-      <div class="session-topic">Concept Lecture Video Player</div>
-      <div class="session-meta">Build a pre-class video player with PDF download and embedded DOK practice questions. Replaces passive lecture with active pre-work.</div>
-    </div>
-    <div class="session-tag main">Main</div>
-  </div>
-
-  <div class="session-card">
-    <div class="session-num">03</div>
-    <div class="session-content">
-      <div class="session-date">Thursday · October 15, 2026 · 4:00pm PT / 7:00pm ET</div>
-      <div class="session-topic">Application Exercise Builder</div>
-      <div class="session-meta">Build one four-S application exercise as a deployable interactive worksheet. One component of a TBL module, not the full module.</div>
-    </div>
-    <div class="session-tag main">Main</div>
-  </div>
-
-  <div class="session-card">
-    <div class="session-num">04</div>
-    <div class="session-content">
-      <div class="session-date">Thursday · October 29, 2026 · 4:00pm PT / 7:00pm ET</div>
-      <div class="session-topic">Readiness Assurance Engine</div>
-      <div class="session-meta">Build one iRAT/tRAT question set with appeals-ready conceptual questions across DOK levels. Toughest Lab in the fall lineup.</div>
-    </div>
-    <div class="session-tag main">Main</div>
-  </div>
-
-  <div class="session-card">
-    <div class="session-num">05</div>
-    <div class="session-content">
-      <div class="session-date">Thursday · November 12, 2026 · 4:00pm PT / 7:00pm ET</div>
-      <div class="session-topic">Essay &amp; Long-Answer Grading Tool <span style="opacity: 0.5;">(encore)</span></div>
-      <div class="session-meta">Most universally appealing Lab returns for late enrollees. Same content as Session 01.</div>
-    </div>
-    <div class="session-tag encore">Encore</div>
-  </div>
-
-  <div class="session-card">
-    <div class="session-num">06</div>
-    <div class="session-content">
-      <div class="session-date">Thursday · December 3, 2026 · 4:00pm PT / 7:00pm ET</div>
-      <div class="session-topic">Application Exercise Builder <span style="opacity: 0.5;">(encore)</span></div>
-      <div class="session-meta">Closes out fall. Final session before winter break. Repeats Session 03 content for new cohort.</div>
-    </div>
-    <div class="session-tag encore">Encore</div>
-  </div>
-
-</div>
-
-<!-- ============ LOCKED DECISIONS ============ -->
-<div class="aside">
-  <div class="aside-card">
-    <div class="aside-eyebrow">Locked decisions</div>
-    <h2 class="aside-title">What's confirmed.</h2>
-    <div class="aside-body">
-      <ul>
-        <li><strong>Time slot:</strong> All sessions Thursdays at 4:00pm PT / 7:00pm ET. East-coast friendly evening slot, 90 minutes each, finishing by 5:30pm PT / 8:30pm ET.</li>
-        <li><strong>Seats per session:</strong> 8 faculty maximum. Intimate cohort feel, room for genuine peer interaction.</li>
-        <li><strong>Founding cohort:</strong> The 8 faculty who attend the July 23 Course Hub Builder session. Founding members lock $87 alumni pricing on every future Project Lab. After July 23, founding cohort closes permanently.</li>
-        <li><strong>Pricing:</strong> Founding (July 23) $87 · Open enrollment (Sept-Dec) $147 standard / $87 alumni · No bundled discount, founding rate locks per-Lab not as a package.</li>
-        <li><strong>Enrollment opens:</strong> July 1, 2026. 10 weeks runway to the first session.</li>
-        <li><strong>Waitlist policy:</strong> If a session sells out, collect waitlist and offer the next available Thursday session. No duplicate Tuesday sessions.</li>
-        <li><strong>Topic rotation:</strong> Course Hub Builder (founding) → Essay &amp; Long-Answer Grading → Concept Lecture Video Player → Application Exercise Builder → Readiness Assurance Engine → Essay encore → Application encore.</li>
-      </ul>
+    <div class="info-cell">
+      <div class="info-label">You leave with</div>
+      <div class="info-value">One deployable artifact</div>
+      <div class="info-detail">Source files, recording, and a live URL.</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ============ PROMOTION RUNWAY ============ -->
-<div class="aside">
-  <div class="aside-card">
-    <div class="aside-eyebrow">Promotion runway</div>
-    <h2 class="aside-title">From today to founding session: 10 weeks.</h2>
-    <div class="aside-body">
-      <p>Today is May 12, 2026. Enrollment opens July 1. Founding session runs July 23. That's 10 weeks of runway, which is enough if you stay focused on the primer pipeline.</p>
-      <div class="timeline">
-        <div class="timeline-row">
-          <div class="timeline-when">Now → Jun 1</div>
-          <div class="timeline-what">Build the 5-email Primer sequence inside Kajabi (Marketing → Email Sequences). Wire it to the opt-in form. Test the full sequence end-to-end on your own email address before going live.</div>
-        </div>
-        <div class="timeline-row">
-          <div class="timeline-when">Jun 1 → Jul 1</div>
-          <div class="timeline-what">Soft-launch the primer to your existing audience (LinkedIn, Facebook, faculty networks). Watch reply rates and unsubscribe rates. Iterate on the conversion email if needed.</div>
-        </div>
-        <div class="timeline-row">
-          <div class="timeline-when">Jul 1</div>
-          <div class="timeline-what">Founding cohort enrollment opens. Build the Kajabi Offer for the July 23 Course Hub Builder session at $87. Email last paragraph of primer becomes the public booking link.</div>
-        </div>
-        <div class="timeline-row">
-          <div class="timeline-when">Jul 1 → Jul 16</div>
-          <div class="timeline-what">Drive primer signups aggressively. Each signup enters the 8-day sequence that ends with the founding cohort offer. Goal: fill all 8 founding seats by July 16.</div>
-        </div>
-        <div class="timeline-row">
-          <div class="timeline-when">Jul 16</div>
-          <div class="timeline-what">Confirm founding cohort enrollments. Send pre-session prep materials to attendees 7 days out.</div>
-        </div>
-        <div class="timeline-row">
-          <div class="timeline-when">Jul 23</div>
-          <div class="timeline-what">Run the founding cohort. Course Hub Builder. The launch.</div>
-        </div>
-        <div class="timeline-row">
-          <div class="timeline-when">Jul 24 → Sep 17</div>
-          <div class="timeline-what">Apply founding cohort alumni tag to attendees. Open fall enrollment for Sessions 01-06. Founding alumni see $87 pricing automatically.</div>
-        </div>
-        <div class="timeline-row">
-          <div class="timeline-when">Sep 17</div>
-          <div class="timeline-what">Run first fall Project Lab. Essay &amp; Long-Answer Grading Tool.</div>
-        </div>
+<!-- ============ FOUNDING COHORT ============ -->
+<section class="cohort-section founding">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">July 2026 · Founding cohort</div>
+      <h2 class="section-headline">The <span class="accent">founding</span> sessions.</h2>
+    </div>
+    <div class="section-meta">
+      <strong>$87 per session</strong> or <strong>$147 bundle</strong> for both<br/>
+      Founding members lock $87 alumni pricing on every future Project Lab, forever.
+    </div>
+  </div>
+  
+  <div class="session-grid">
+    
+    <div class="session-card founding">
+      <div class="session-date-block">
+        <div class="session-month">Jul</div>
+        <div class="session-day">16</div>
+        <div class="session-weekday">Thursday</div>
+      </div>
+      <div class="session-content">
+        <span class="session-tier-tag founding-tag">Founding 01</span>
+        <div class="session-topic">Course Hub Builder</div>
+        <div class="session-blurb">Build the Canvas course-level architecture: home page, syllabus, schedule, module navigation. The container every other Lab plugs into. Walk in with course objectives, walk out with a deployable course hub ready for the fall semester.</div>
+        <div class="session-time">5:00pm PT / 8:00pm ET · 90 minutes</div>
+      </div>
+      <div class="session-action">
+        <div class="session-price">$87<span class="alt">Founding rate</span></div>
+        <a href="https://www.medmasterscollaborative.com/offers/FOUNDING-COURSE-HUB-URL" class="session-enroll">Enroll →</a>
       </div>
     </div>
+    
+    <div class="session-card founding">
+      <div class="session-date-block">
+        <div class="session-month">Jul</div>
+        <div class="session-day">23</div>
+        <div class="session-weekday">Thursday</div>
+      </div>
+      <div class="session-content">
+        <span class="session-tier-tag founding-tag">Founding 02</span>
+        <div class="session-topic">Module Hub Builder</div>
+        <div class="session-blurb">Build one Module Hub scaffold for one topic of your choice, wired directly into the Course Hub from session 01. The structural container for pre-work, RAT, application exercise, and rubric. Fill the slots over time across subsequent Labs or in Sprint.</div>
+        <div class="session-time">5:00pm PT / 8:00pm ET · 90 minutes</div>
+      </div>
+      <div class="session-action">
+        <div class="session-price">$87<span class="alt">Founding rate</span></div>
+        <a href="https://www.medmasterscollaborative.com/offers/FOUNDING-MODULE-HUB-URL" class="session-enroll">Enroll →</a>
+      </div>
+    </div>
+    
+    <div class="bundle-card">
+      <div>
+        <div class="bundle-eyebrow">Founding bundle · Save $27</div>
+        <h3 class="bundle-headline">Attend both founding sessions. <span class="accent">Save $27.</span></h3>
+        <p class="bundle-blurb">Build your Course Hub on July 16 and your first Module Hub on July 23, wired together as a working scaffold for your fall course. Lock the founding alumni rate on every future Project Lab. Limited to 8 seats per session.</p>
+      </div>
+      <div class="bundle-action">
+        <div class="bundle-price">$147<span class="alt">Both sessions</span></div>
+        <a href="https://www.medmasterscollaborative.com/offers/FOUNDING-BUNDLE-URL" class="session-enroll bundle">Enroll in bundle →</a>
+      </div>
+    </div>
+    
   </div>
-</div>
+</section>
 
-<!-- ============ CONFLICTS TO VERIFY ============ -->
-<div class="aside">
-  <div class="aside-card">
-    <div class="aside-eyebrow">Calendar conflicts to verify</div>
-    <h2 class="aside-title">Worth double-checking.</h2>
-    <div class="aside-body">
-      <ul>
-        <li><strong>July 23 (founding session):</strong> Mid-summer, peak faculty prep season. No major holidays in the window. Verify against any major medical education summer institutes.</li>
-        <li><strong>Yom Kippur 2026:</strong> September 20-21 (clears Sep 17 by 3 days)</li>
-        <li><strong>Halloween:</strong> Saturday, October 31, 2026 (Oct 29 Thursday is two days before. Parents of school-age kids may have conflicts.)</li>
-        <li><strong>Election Day 2026:</strong> Tuesday, November 3 (Thursday Nov 5 is two days after. Verify no major distraction.)</li>
-        <li><strong>Veterans Day:</strong> Wednesday, November 11 (no Thursday conflict)</li>
-        <li><strong>Thanksgiving:</strong> Thursday, November 26 (correctly avoided)</li>
-        <li><strong>Hanukkah 2026:</strong> December 4-12 (Session 6 on Dec 3 ends just before Hanukkah begins at sundown. Clean.)</li>
-        <li><strong>AAMC conferences:</strong> Verify no Learn Serve Lead or major medical education conference falls on your dates. Worth a quick Google.</li>
-      </ul>
+<!-- ============ FALL OPEN ENROLLMENT ============ -->
+<section class="cohort-section">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">September - December 2026 · Open enrollment</div>
+      <h2 class="section-headline">Fall <span class="accent">Project Labs</span>.</h2>
+    </div>
+    <div class="section-meta">
+      <strong>$147 per session</strong> · <strong>$87 alumni rate</strong> for founding cohort members<br/>
+      Each Lab produces one deployable component for your TBL teaching.
     </div>
   </div>
-</div>
+  
+  <div class="session-grid">
+    
+    <div class="session-card">
+      <div class="session-date-block">
+        <div class="session-month">Sep</div>
+        <div class="session-day">17</div>
+        <div class="session-weekday">Thursday</div>
+      </div>
+      <div class="session-content">
+        <span class="session-tier-tag fall-tag">Project Lab 01</span>
+        <div class="session-topic">Essay &amp; Long-Answer Grading Tool</div>
+        <div class="session-blurb">Build a rubric-based grading tool for essay and long-form answer questions. Includes checkboxes per performance level, comment fields per criterion, and save-to-PDF per student. Send graded artifacts directly to learners.</div>
+        <div class="session-time">5:00pm PT / 8:00pm ET · 90 minutes</div>
+      </div>
+      <div class="session-action">
+        <div class="session-price">$147<span class="alt">$87 alumni</span></div>
+        <a href="https://www.medmasterscollaborative.com/offers/LAB-ESSAY-GRADING-URL" class="session-enroll">Enroll →</a>
+      </div>
+    </div>
+    
+    <div class="session-card">
+      <div class="session-date-block">
+        <div class="session-month">Oct</div>
+        <div class="session-day">01</div>
+        <div class="session-weekday">Thursday</div>
+      </div>
+      <div class="session-content">
+        <span class="session-tier-tag fall-tag">Project Lab 02</span>
+        <div class="session-topic">Concept Lecture Video Player</div>
+        <div class="session-blurb">Build a pre-class video player with PDF download and embedded Depth of Knowledge practice questions. Replaces passive lecture with active pre-work that primes students for in-class application.</div>
+        <div class="session-time">5:00pm PT / 8:00pm ET · 90 minutes</div>
+      </div>
+      <div class="session-action">
+        <div class="session-price">$147<span class="alt">$87 alumni</span></div>
+        <a href="https://www.medmasterscollaborative.com/offers/LAB-VIDEO-PLAYER-URL" class="session-enroll">Enroll →</a>
+      </div>
+    </div>
+    
+    <div class="session-card">
+      <div class="session-date-block">
+        <div class="session-month">Oct</div>
+        <div class="session-day">15</div>
+        <div class="session-weekday">Thursday</div>
+      </div>
+      <div class="session-content">
+        <span class="session-tier-tag fall-tag">Project Lab 03</span>
+        <div class="session-topic">Application Exercise Builder</div>
+        <div class="session-blurb">Build one four-S application exercise as a deployable interactive worksheet: same problem, specific choice, simultaneous report, significant problem. The cognitive payoff of any TBL session.</div>
+        <div class="session-time">5:00pm PT / 8:00pm ET · 90 minutes</div>
+      </div>
+      <div class="session-action">
+        <div class="session-price">$147<span class="alt">$87 alumni</span></div>
+        <a href="https://www.medmasterscollaborative.com/offers/LAB-APPLICATION-EXERCISE-URL" class="session-enroll">Enroll →</a>
+      </div>
+    </div>
+    
+    <div class="session-card">
+      <div class="session-date-block">
+        <div class="session-month">Oct</div>
+        <div class="session-day">29</div>
+        <div class="session-weekday">Thursday</div>
+      </div>
+      <div class="session-content">
+        <span class="session-tier-tag fall-tag">Project Lab 04</span>
+        <div class="session-topic">Readiness Assurance Engine</div>
+        <div class="session-blurb">Build one iRAT and tRAT question set with appeals-ready conceptual questions across Depth of Knowledge levels. Catches whether students actually engaged with the prep work and flags misconceptions before class discussion.</div>
+        <div class="session-time">5:00pm PT / 8:00pm ET · 90 minutes</div>
+      </div>
+      <div class="session-action">
+        <div class="session-price">$147<span class="alt">$87 alumni</span></div>
+        <a href="https://www.medmasterscollaborative.com/offers/LAB-READINESS-URL" class="session-enroll">Enroll →</a>
+      </div>
+    </div>
+    
+    <div class="session-card">
+      <div class="session-date-block">
+        <div class="session-month">Nov</div>
+        <div class="session-day">12</div>
+        <div class="session-weekday">Thursday</div>
+      </div>
+      <div class="session-content">
+        <span class="session-tier-tag encore-tag">Encore</span>
+        <div class="session-topic">Essay &amp; Long-Answer Grading Tool</div>
+        <div class="session-blurb">Same content as Project Lab 01 on September 17. Return engagement for late enrollees and faculty who couldn't attend the first run.</div>
+        <div class="session-time">5:00pm PT / 8:00pm ET · 90 minutes</div>
+      </div>
+      <div class="session-action">
+        <div class="session-price">$147<span class="alt">$87 alumni</span></div>
+        <a href="https://www.medmasterscollaborative.com/offers/LAB-ESSAY-ENCORE-URL" class="session-enroll">Enroll →</a>
+      </div>
+    </div>
+    
+    <div class="session-card">
+      <div class="session-date-block">
+        <div class="session-month">Dec</div>
+        <div class="session-day">03</div>
+        <div class="session-weekday">Thursday</div>
+      </div>
+      <div class="session-content">
+        <span class="session-tier-tag encore-tag">Encore</span>
+        <div class="session-topic">Application Exercise Builder</div>
+        <div class="session-blurb">Same content as Project Lab 03 on October 15. Closes out fall before winter break. Last Project Lab of 2026.</div>
+        <div class="session-time">5:00pm PT / 8:00pm ET · 90 minutes</div>
+      </div>
+      <div class="session-action">
+        <div class="session-price">$147<span class="alt">$87 alumni</span></div>
+        <a href="https://www.medmasterscollaborative.com/offers/LAB-APPLICATION-ENCORE-URL" class="session-enroll">Enroll →</a>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ============ OTHER PROGRAMS ============ -->
+<section class="other-programs">
+  <div class="other-eyebrow">Beyond the Lab</div>
+  <h2 class="other-headline">Ready for <span class="accent">deeper work?</span></h2>
+  
+  <div class="other-cards">
+    <a href="programs.html#sprint" class="other-card">
+      <div class="other-tier">Focused cohort · 30 days</div>
+      <div class="other-name">Project Sprint</div>
+      <div class="other-blurb">Build one complete integrated TBL module across 30 days with weekly group coaching and peer review. The next step when one component is not enough.</div>
+      <span class="other-link">Learn more →</span>
+    </a>
+    
+    <a href="programs.html#annual" class="other-card">
+      <div class="other-tier">Full year · 12 months</div>
+      <div class="other-name">Annual Member</div>
+      <div class="other-blurb">A 12-month partnership covering 10 monthly module-build cycles plus exclusive access to the Member Library: a curated collection of TBL modules across anatomy, physiology, and the medical sciences.</div>
+      <span class="other-link">Learn more →</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ SITE FOOTER ============ -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <a href="index.html" class="footer-logo" aria-label="MedMasters Collaborative home">
+      <svg viewBox="0 0 720 200">
+        <g transform="translate(0, 18)">
+          <g transform="translate(60, 0) rotate(8 0 130)"><circle cx="0" cy="20" r="10" fill="#0B1530"/><path d="M 0,32 C -10,32 -16,36 -16,42 C -16,55 -13,68 -11,82 C -10,100 -12,118 -14,130 L 14,130 C 12,118 10,100 11,82 C 13,68 16,55 16,42 C 16,36 10,32 0,32 Z" fill="#0B1530"/></g>
+          <g transform="translate(100, 0)"><circle cx="0" cy="10" r="11" fill="#8B3A2E"/><path d="M 0,22 C -11,22 -17,26 -17,34 C -17,52 -14,70 -12,86 C -11,108 -13,122 -15,132 L 15,132 C 13,122 11,108 12,86 C 14,70 17,52 17,34 C 17,26 11,22 0,22 Z" fill="#8B3A2E"/></g>
+          <g transform="translate(140, 0) rotate(-8 0 130)"><circle cx="0" cy="20" r="10" fill="#C9A14A"/><path d="M 0,32 C -10,32 -16,36 -16,42 C -16,55 -13,68 -11,82 C -10,100 -12,118 -14,130 L 14,130 C 12,118 10,100 11,82 C 13,68 16,55 16,42 C 16,36 10,32 0,32 Z" fill="#C9A14A"/></g>
+        </g>
+        <g transform="translate(240, 0)">
+          <text x="0" y="118" font-size="80" font-weight="800" letter-spacing="-2" font-family="'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif"><tspan fill="#0B1530">Med</tspan><tspan fill="#8B3A2E">Masters</tspan></text>
+          <text x="0" y="165" font-size="22" font-weight="700" letter-spacing="6" fill="#0B1530" opacity="0.78" font-family="'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif">COLLABORATIVE</text>
+        </g>
+      </svg>
+    </a>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="https://www.medmasterscollaborative.com/free-primer">Free primer</a>
+      <a href="https://www.medmasterscollaborative.com/medmasters-collaborative-privacy-policy">Privacy</a>
+      <a href="https://www.medmasterscollaborative.com/medmasters-collaborative-terms-of-service">Terms</a>
+    </nav>
+    <div class="footer-copyright">© 2026 MedMasters Collaborative LLC</div>
+  </div>
+</footer>
 
 </body>
 </html>
