@@ -136,6 +136,8 @@ a { color: inherit; }
   font-weight: 700;
   letter-spacing: 0.20em;
   text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .cta-secondary {
@@ -147,6 +149,8 @@ a { color: inherit; }
   text-transform: uppercase;
   border-bottom: 1px solid rgba(11, 21, 48, 0.4);
   padding-bottom: 6px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .hero-visual {
@@ -857,6 +861,11 @@ a { color: inherit; }
   justify-content: center;
 }
 
+.cta-form-wrap {
+  max-width: 520px;
+  margin: 0 auto 16px;
+}
+
 .cta-input {
   flex: 1;
   min-width: 260px;
@@ -888,6 +897,8 @@ a { color: inherit; }
   cursor: pointer;
   border-radius: 4px;
   transition: background 0.2s;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .cta-button:hover {
@@ -1101,8 +1112,8 @@ a { color: inherit; }
       Team-Based Learning replaces passive lecture with structured team problem-solving and peer accountability. Project Lab sessions pair you with a TBL expert and an AI hub tool. Bring your content. Leave with a deployable, accessible, Canvas-ready artifact.
     </div>
     <div class="hero-ctas">
-      <span class="cta-primary">New to TBL? Start the free primer</span>
-      <span class="cta-secondary">See Project Lab sessions</span>
+      <a href="https://www.medmasterscollaborative.com/free-primer" class="cta-primary">New to TBL? Start the free primer</a>
+      <a href="programs.html" class="cta-secondary">See Project Lab sessions</a>
     </div>
   </div>
 </div>
@@ -1346,7 +1357,7 @@ a { color: inherit; }
 <div class="cta-section">
   <div class="cta-eyebrow">Founding cohort</div>
   <div class="cta-headline">Start with the <span class="accent">primer</span>. Stay for the <span class="accent">first cohort</span>.</div>
-  <div class="cta-subhead">A short email primer on TBL fundamentals, plus first access to the founding Project Lab cohort opening Fall 2026.</div>
+  <div class="cta-subhead">A short email primer on TBL fundamentals, plus first access to the founding Project Lab cohort opening July 23, 2026.</div>
   
   <div class="cta-benefits">
     <div class="cta-benefit">
@@ -1355,7 +1366,7 @@ a { color: inherit; }
     </div>
     <div class="cta-benefit">
       <div class="cta-benefit-num">02 · A voice in the roadmap</div>
-      <div class="cta-benefit-text">Help choose which Project Labs come next: Application Exercise Builder, Clinical Case Composer, Readiness Assurance Engine.</div>
+      <div class="cta-benefit-text">Help choose which Project Labs come next: Essay &amp; Long-Answer Grading, Concept Lecture Video Player, Application Exercise Builder, Readiness Assurance Engine.</div>
     </div>
     <div class="cta-benefit">
       <div class="cta-benefit-num">03 · Personal review</div>
@@ -1363,11 +1374,10 @@ a { color: inherit; }
     </div>
   </div>
   
-  <form class="cta-form">
-    <input class="cta-input" type="email" placeholder="Your work email" required />
-    <button class="cta-button" type="submit">Get the primer →</button>
-  </form>
-  <div class="cta-privacy">No spam. Unsubscribe anytime. We never sell your email.</div>
+  <div class="cta-form-wrap">
+    <script src="https://www.medmasterscollaborative.com/forms/2149577159/embed.js"></script>
+  </div>
+  <div class="cta-privacy">Five emails over eight days. Unsubscribe with one click. We never sell your email.</div>
 </div>
 
 <!-- === FOOTER === -->
@@ -1408,7 +1418,7 @@ a { color: inherit; }
     </div>
     <div>
       <div class="footer-col-header">Resources</div>
-      <a class="footer-link">Free TBL primer</a>
+      <a class="footer-link" href="https://www.medmasterscollaborative.com/free-primer">Free TBL primer</a>
       <a class="footer-link">Citations brief</a>
       <a class="footer-link">FAQ</a>
       <a class="footer-link">About Sharilyn</a>
@@ -1435,7 +1445,7 @@ a { color: inherit; }
   
   <div class="footer-bottom">
     <div class="footer-copyright">© 2026 MedMasters Collaborative LLC</div>
-    <div class="footer-cohort">Founding cohort · Fall 2026</div>
+    <div class="footer-cohort">Founding cohort · Jul 23, 2026</div>
   </div>
 </div>
 
