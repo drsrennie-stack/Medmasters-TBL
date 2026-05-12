@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free TBL Primer · Email Sequence Draft · MedMasters Collaborative</title>
+
+<style>
+@import url('https://cdn.jsdelivr.net/npm/@fontsource-variable/plus-jakarta-sans/index.css');
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif;
+  background: #F7F7F8;
+  color: #0B1530;
+  line-height: 1.5;
+}
+
+.doc-header {
+  padding: 56px max(40px, 5vw) 32px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.doc-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.doc-title {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+.doc-title .accent { color: #8B3A2E; }
+.doc-sub {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(11, 21, 48, 0.7);
+  line-height: 1.6;
+  max-width: 620px;
+}
+.doc-meta {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(11, 21, 48, 0.45);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+
+.email-list {
+  padding: 16px max(20px, 4vw) 80px;
+}
+.email-card {
+  background: #FFFFFF;
+  border: 0.5px solid rgba(11, 21, 48, 0.08);
+  border-radius: 14px;
+  max-width: 800px;
+  margin: 0 auto 24px;
+  padding: 0;
+  box-shadow: 0 2px 10px rgba(11, 21, 48, 0.04);
+  overflow: hidden;
+}
+.email-header {
+  padding: 24px 32px 22px;
+  border-bottom: 0.5px solid rgba(11, 21, 48, 0.08);
+  background: #FBFAF7;
+}
+.email-num {
+  font-size: 10px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.email-meta-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 18px;
+  padding: 8px 0;
+  border-top: 0.5px solid rgba(11, 21, 48, 0.08);
+  align-items: baseline;
+}
+.email-meta-row:first-of-type { border-top: none; padding-top: 0; }
+.email-meta-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(11, 21, 48, 0.4);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding-top: 4px;
+}
+.email-meta-value {
+  font-size: 13px;
+  color: rgba(11, 21, 48, 0.75);
+  font-weight: 500;
+  line-height: 1.45;
+}
+.email-meta-value.subject {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0B1530;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+.email-meta-value.preview {
+  font-style: italic;
+  color: rgba(11, 21, 48, 0.6);
+}
+.email-body {
+  padding: 32px 36px 36px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(11, 21, 48, 0.88);
+}
+.email-body p { margin: 0 0 16px; }
+.email-body p:last-child { margin-bottom: 0; }
+.email-body strong { font-weight: 700; color: #0B1530; }
+.email-body ol, .email-body ul { margin: 0 0 16px; padding-left: 24px; }
+.email-body li { margin-bottom: 8px; }
+.email-body .salutation { margin-bottom: 16px; }
+.email-body .signoff {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 0.5px solid rgba(11, 21, 48, 0.10);
+  font-size: 14px;
+  color: rgba(11, 21, 48, 0.7);
+}
+.email-body .cta-pair {
+  background: #060A18;
+  color: #F5F1E8;
+  padding: 24px 28px;
+  border-radius: 8px;
+  margin: 24px 0;
+}
+.email-body .cta-pair p { color: #F5F1E8; opacity: 0.9; margin-bottom: 14px; }
+.email-body .cta-pair .cta-btn {
+  display: inline-block;
+  background: #8B3A2E;
+  color: #FFFFFF !important;
+  padding: 12px 22px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-right: 12px;
+  margin-bottom: 8px;
+}
+.email-body .cta-pair .cta-btn.secondary {
+  background: transparent;
+  border: 1px solid rgba(245, 241, 232, 0.4);
+  color: #F5F1E8 !important;
+}
+
+.implementation-notes {
+  max-width: 800px;
+  margin: 48px auto 0;
+  background: #FFFFFF;
+  border: 0.5px solid rgba(11, 21, 48, 0.08);
+  border-radius: 14px;
+  padding: 36px 40px;
+  box-shadow: 0 2px 10px rgba(11, 21, 48, 0.04);
+}
+.impl-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.impl-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin: 0 0 22px;
+}
+.impl-section {
+  margin-bottom: 28px;
+  padding-top: 22px;
+  border-top: 0.5px solid rgba(11, 21, 48, 0.10);
+}
+.impl-section:first-of-type { padding-top: 0; border-top: none; }
+.impl-section h3 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  margin: 0 0 10px;
+}
+.impl-section p, .impl-section li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(11, 21, 48, 0.8);
+}
+.impl-section ul { margin: 0 0 12px; padding-left: 22px; }
+
+@media (max-width: 800px) {
+  .doc-title { font-size: 32px; }
+  .email-header { padding: 20px 22px; }
+  .email-body { padding: 22px 22px 26px; }
+  .email-subject { font-size: 16px; }
+  .implementation-notes { padding: 26px 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="doc-eyebrow">Free TBL Primer · Email sequence draft</div>
+  <h1 class="doc-title">Five emails that turn <span class="accent">curious faculty</span> into Project Lab buyers.</h1>
+  <p class="doc-sub">A 5-email sequence that teaches faculty what TBL actually is, where most implementations fail, and how to ship their first TBL components in 90 minutes. Designed to convert the curious into the founding cohort.</p>
+  <div class="doc-meta">Draft · May 11, 2026</div>
+</div>
+
+<div class="email-list">
+
+  <!-- ========= EMAIL 01 ========= -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">Email 01 · Day 1 (immediate)</div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Internal title</div>
+        <div class="email-meta-value">Day 1 · What TBL actually means</div>
+      </div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Subject line</div>
+        <div class="email-meta-value subject">What "Team-Based Learning" actually means (it's not what most people think)</div>
+      </div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Preview text</div>
+        <div class="email-meta-value preview">The four required elements most "TBL" classrooms are missing.</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <p class="salutation">Hi {{ person.first_name }},</p>
+      <p>Thanks for signing up for the TBL primer. Over the next five emails, I'm going to walk you through what Team-Based Learning actually is, where most implementations fail, and how to start shipping the pieces of your TBL teaching without burning forty hours of weekends.</p>
+      <p><strong>First, your free Course Branding Tool is ready.</strong> Use the link in the P.S. below to build your course branding sheet now. It takes about 15 minutes. Every artifact you build with me from here on out, whether through this primer, the founding cohort, or any future Project Lab, will inherit the brand you set today. One-time investment, lifetime payoff.</p>
+      <p>Now, on to the primer itself.</p>
+      <p>Let's start with the most common misconception: TBL is not just active learning with groups.</p>
+      <p>Active learning is a broad category. Flipping the classroom, problem-based learning, case-based learning, think-pair-share. They all qualify, and they all have evidence supporting them. But Team-Based Learning is something more specific. It has a name, a structure, and a research base going back to the 1980s when Larry Michaelsen developed it at the University of Oklahoma.</p>
+      <p><strong>A TBL session has four required elements:</strong></p>
+      <ol>
+        <li><strong>Pre-class preparation.</strong> Students study assigned material before class. This isn't optional. The classroom time is not for content delivery.</li>
+        <li><strong>Readiness Assurance Tests.</strong> When students arrive, they take a short test (the iRAT, Individual Readiness Assurance Test) alone. Then they retake the same test as a team (the tRAT, Team Readiness Assurance Test) and have to reach consensus on each answer. Disagreements between students force productive arguments.</li>
+        <li><strong>Appeals process.</strong> Teams can challenge any iRAT question they think is unfair or ambiguous, in writing, with evidence. This is rigorous, not casual.</li>
+        <li><strong>Application exercises.</strong> The rest of class is spent on significant problems that require application of the prep material to authentic, ambiguous situations. Teams work simultaneously, then defend their reasoning to the class.</li>
+      </ol>
+      <p>Notice what's not on that list: lecture. In a properly run TBL classroom, the instructor doesn't lecture during class time. The instructor designs, facilitates, and clarifies. The cognitive work is on the students.</p>
+      <p>This is why TBL is harder to implement than "flipped classroom" or "interactive lecture." It demands more of students upfront and reshapes what the instructor does during class. It's also why the research evidence on TBL is stronger than most active learning interventions: when faculty actually implement it correctly, students retain more, perform better on board exams, and develop the team-based skills clinical practice requires.</p>
+      <p>In tomorrow's email, I'll walk you through what a real 75-minute TBL session actually looks like, minute by minute.</p>
+      <p style="margin-top: 24px; padding: 16px 18px; background: #FBFAF7; border-left: 3px solid #8B3A2E; border-radius: 4px;"><strong>P.S.</strong> Your Course Branding Tool is here: <strong>https://www.medmasterscollaborative.com/branding-tool</strong>. 15 minutes, and every artifact you build from here on out carries your brand.</p>
+      <div class="signoff">
+        Sharilyn Rennie, ND<br/>
+        MedMasters Collaborative
+      </div>
+    </div>
+  </div>
+
+  <!-- ========= EMAIL 02 ========= -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">Email 02 · Day 2</div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Internal title</div>
+        <div class="email-meta-value">Day 2 · 75-minute session breakdown</div>
+      </div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Subject line</div>
+        <div class="email-meta-value subject">Inside a 75-minute TBL session: the actual time breakdown</div>
+      </div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Preview text</div>
+        <div class="email-meta-value preview">Minute by minute: what students do and what you do.</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <p class="salutation">Hi {{ person.first_name }},</p>
+      <p>Yesterday I explained what TBL actually is. Today let's get concrete: what does a real TBL class period look like, minute by minute?</p>
+      <p>Here's a typical 75-minute session for a medical or health science course:</p>
+      <p><strong>Minutes 0 to 3. Settle and review.</strong> Students arrive, find their teams (TBL teams are stable: same 5 to 7 students all semester). The instructor opens with the day's learning objectives and the day's question: what are we trying to apply today?</p>
+      <p><strong>Minutes 3 to 15. iRAT (Individual Readiness Assurance Test).</strong> Each student takes a 10 to 15 question multiple-choice test individually. Closed-book. The questions cover the assigned pre-class material, but more importantly they target conceptual understanding, not memorization. A good iRAT question can't be answered by skimming the chapter the night before.</p>
+      <p><strong>Minutes 15 to 30. tRAT (Team Readiness Assurance Test).</strong> Same test, same questions, but teams now answer together. Teams use scratch-off cards or digital tools that give immediate feedback. This is where the productive arguments happen. "Why did you pick C?" "Because…" When teams hear each other's reasoning, the wrong answers get corrected before they harden.</p>
+      <p><strong>Minutes 30 to 35. Appeals.</strong> Teams that want to challenge a question submit a written appeal with evidence (a page reference, a citation, a logical argument). Teams that succeed get points back. This builds a culture of evidence-based reasoning.</p>
+      <p><strong>Minutes 35 to 45. Mini-clarification.</strong> The instructor addresses common errors revealed by the RAT scores. This is targeted, not a re-lecture. 10 minutes maximum.</p>
+      <p><strong>Minutes 45 to 70. Application exercise.</strong> Now the real work begins. Teams work on a significant problem that requires applying what they prepped on. The exercise uses what TBL calls the four S's: same problem (every team works on it), specific choice (teams pick a single answer), simultaneous report (every team reveals their answer at the same time), and significant problem (it actually matters).</p>
+      <p><strong>Minutes 70 to 75. Cross-team discussion.</strong> When all teams reveal their choices, the differences spark argument. The instructor facilitates without taking sides until consensus or productive disagreement is reached.</p>
+      <p>That's it. No lecture. No PowerPoint walking through definitions. The students arrive prepared (or they don't, and the iRAT shows it), then spend class time wrestling with application.</p>
+      <p>The hard part isn't running a session like this. The hard part is designing the pre-class materials, the RAT questions, and the application exercise so they all line up. That's where most TBL implementations fall apart, and that's what I'll cover tomorrow.</p>
+      <div class="signoff">Sharilyn</div>
+    </div>
+  </div>
+
+  <!-- ========= EMAIL 03 ========= -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">Email 03 · Day 4</div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Internal title</div>
+        <div class="email-meta-value">Day 4 · Three failure modes</div>
+      </div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Subject line</div>
+        <div class="email-meta-value subject">Why most "TBL" classrooms aren't actually TBL</div>
+      </div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Preview text</div>
+        <div class="email-meta-value preview">Three common failure modes you can spot in your own classroom.</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <p class="salutation">Hi {{ person.first_name }},</p>
+      <p>Faculty tell me they're running TBL in their classroom. Then I ask three questions and find out they're running something else.</p>
+      <p>Here are the three most common failure modes I see, and how to spot them in your own classroom.</p>
+      <p><strong>Failure mode 1: Memory-recall RAT questions.</strong></p>
+      <p>A good iRAT question asks: "A 45-year-old patient presents with X, Y, and Z. The mechanism behind their presentation is most likely:" with four plausible options that each require understanding the prep material to distinguish.</p>
+      <p>A bad iRAT question asks: "Which enzyme catalyzes the conversion of pyruvate to lactate?"</p>
+      <p>The bad question rewards last-minute cramming. The good question requires the conceptual understanding that comes from genuine prep. If your iRAT is mostly bad questions, your students will figure out they can skip the prep and just cram the night before. Pre-class engagement collapses, and TBL stops being TBL.</p>
+      <p><strong>Failure mode 2: Application exercises that aren't actually applied.</strong></p>
+      <p>A real application exercise places students in a situation that has no clean right answer, and forces them to take a specific position and defend it.</p>
+      <p>A fake application exercise asks students to review four cases and identify which one shows hypertension. (That's pattern recognition, not application.)</p>
+      <p>Better: "Here are four 65-year-old male patients with elevated blood pressure. Resources are limited. Which one would you treat first, and what reasoning drives that choice?" Now teams have to weigh, prioritize, defend.</p>
+      <p><strong>Failure mode 3: Teams that aren't really teams.</strong></p>
+      <p>TBL teams are stable. Same 5 to 7 students, all semester, picked by the instructor (not self-selected, not random week-to-week). Stable teams develop trust, productive conflict, and shared accountability over time. They get better at disagreeing well.</p>
+      <p>Self-selected groups become friend groups. Random rotation prevents trust from forming. Either kills the cohort dynamics that make TBL work.</p>
+      <p>I want to be honest about something. Most "TBL" implementations I see have at least one of these failure modes, and many have all three. It's not because faculty are doing it wrong on purpose. It's because designing good RAT questions, good application exercises, and good team structures is hard, and there are very few resources that teach you how to do it well.</p>
+      <p>Tomorrow I'll walk through how to actually design the prep materials, RAT questions, and one application exercise. Concrete steps, not theory.</p>
+      <div class="signoff">Sharilyn</div>
+    </div>
+  </div>
+
+  <!-- ========= EMAIL 04 ========= -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">Email 04 · Day 6</div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Internal title</div>
+        <div class="email-meta-value">Day 6 · Where to start building</div>
+      </div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Subject line</div>
+        <div class="email-meta-value subject">Building your first TBL module: where to start</div>
+      </div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Preview text</div>
+        <div class="email-meta-value preview">Start at the end. Five steps, in order.</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <p class="salutation">Hi {{ person.first_name }},</p>
+      <p>You've seen what TBL actually is and where most implementations fall apart. Today: where to start when you're building your first module.</p>
+      <p>You don't start with the slides. You don't start with the prep reading. You start at the end and work backward.</p>
+      <p><strong>Step 1: Pick the application exercise first.</strong></p>
+      <p>The application exercise is the cognitive payoff of the session. Everything else exists to make it possible. So start there.</p>
+      <p>What real-world decision do you want students to be able to make at the end of this session? Be specific. Not "understand glomerular filtration" but "given a patient's labs, decide whether they need a nephrology consult." Not "know the muscles of the brachial plexus" but "given an injury pattern, predict which nerve is involved."</p>
+      <p>Write that decision down. That's your application exercise.</p>
+      <p><strong>Step 2: Reverse-engineer the prep work.</strong></p>
+      <p>Now ask: what does a student need to know coming in, in order to participate in that application exercise? Not "what's in the textbook chapter." What's the minimum essential knowledge that lets them weigh options and defend a position?</p>
+      <p>That's your assigned pre-class reading.</p>
+      <p><strong>Step 3: Write the RAT questions.</strong></p>
+      <p>For each major concept in the prep work, write one or two questions that test conceptual understanding, not recall. Use the iRAT to detect whether students actually engaged with the prep, and to flag the misconceptions you'll address in your mini-clarification.</p>
+      <p>A good rule: if a student could correctly answer your RAT question by Googling, it's not a good RAT question.</p>
+      <p><strong>Step 4: Form teams and write team-application instructions.</strong></p>
+      <p>Decide team size (5 to 7 is the sweet spot for medical education). Decide team composition (stratify for diversity of background and experience, don't put all the strongest students together). Write a clear team-application worksheet that frames the exercise, lists the constraints, and requires a specific choice with reasoning.</p>
+      <p><strong>Step 5: Run a dry test.</strong></p>
+      <p>Walk through your own session in your head. Time it. Does it fit in your class period? Is there enough time for the application exercise? Are the RAT questions actually requiring the prep work, or could a savvy student fake them?</p>
+      <p>This is the part where the design usually breaks. Times don't add up. The application exercise turns out to be too narrow or too broad. The RAT questions are too easy.</p>
+      <p>This is also where I lose most faculty. They spend 30 hours on Steps 1 to 4, hit the dry test, realize the design has holes, and either abandon TBL or ship something flawed because the whole module felt too big to design alone.</p>
+      <p>Tomorrow's email is about how to break the design challenge into bite-sized components, so you can ship the pieces (the rubric, the video player, the RAT questions, the application exercise) one at a time in 90-minute Project Lab sessions. And when you're ready to integrate them into a complete TBL module across 30 days, the Sprint cohort exists for exactly that.</p>
+      <div class="signoff">Sharilyn</div>
+    </div>
+  </div>
+
+  <!-- ========= EMAIL 05 ========= -->
+  <div class="email-card">
+    <div class="email-header">
+      <div class="email-num">Email 05 · Day 8 (conversion email)</div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Internal title</div>
+        <div class="email-meta-value">Day 8 · Deployment + cohort CTA</div>
+      </div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Subject line</div>
+        <div class="email-meta-value subject">From plan to live in Canvas: the deployment problem</div>
+      </div>
+      <div class="email-meta-row">
+        <div class="email-meta-label">Preview text</div>
+        <div class="email-meta-value preview">Why brilliant TBL designs never reach students. And the fix.</div>
+      </div>
+    </div>
+    <div class="email-body">
+      <p class="salutation">Hi {{ person.first_name }},</p>
+      <p>You can have a brilliant TBL design and never get students to use it.</p>
+      <p>The reason isn't pedagogy. It's deployment.</p>
+      <p>A TBL session needs:</p>
+      <ul>
+        <li>A way to deliver pre-class materials to students that they'll actually engage with</li>
+        <li>An iRAT mechanism that scales (paper? Canvas quiz? scratch-off card?)</li>
+        <li>A tRAT mechanism that gives teams immediate feedback</li>
+        <li>An application exercise students can work on in class without paper handouts breaking down</li>
+        <li>An accessibility-compliant version for any student who needs one</li>
+        <li>A way to record results for grading</li>
+      </ul>
+      <p>For most faculty, this means a Google Doc, a Canvas quiz, a stack of printed handouts, an Excel gradebook, and a hope that nothing breaks. The pedagogical design is good. The deployment is brittle.</p>
+      <p>That's the problem MedMasters Collaborative solves.</p>
+      <p>In a 90-minute Project Lab session, you bring your course learning objectives and your source materials. I bring the AI hub tool that converts them into:</p>
+      <ul>
+        <li>A deployable interactive HTML artifact with a live URL</li>
+        <li>An accessible companion document with full text and screen-reader support</li>
+        <li>The underlying source files, yours to host and modify forever</li>
+      </ul>
+      <p>By the end of the 90 minutes, you have one working component embedded in Canvas, ready for students. Not a draft. Not a plan. One real piece of your TBL teaching, deployable today.</p>
+      <p>Stack a few Project Labs over the semester and you've assembled most of a TBL module from pieces, on your own schedule, one Thursday evening at a time. When you're ready to integrate them into a complete, peer-reviewed TBL session with weekly coaching, the 30-day Project Sprint exists for exactly that.</p>
+      <p>This is what I built MedMasters Collaborative to do.</p>
+      <p>The founding cohort opens July 16, 2026 with two paired Project Lab sessions: Course Hub Builder (July 16) and Module Hub Builder (July 23). Faculty can enroll in either session for $87 each, or both as a founding bundle for $147 (saves $27). Either way, founding members lock in $87 alumni pricing on every future Project Lab forever. Eight seats per session.</p>
+      <div class="cta-pair">
+        <p>Ready to ship your first TBL component instead of building everything from scratch in your spare hours?</p>
+        <a href="https://www.medmasterscollaborative.com/schedule" class="cta-btn">See the founding cohort schedule →</a>
+        <a href="https://www.medmasterscollaborative.com/programs" class="cta-btn secondary">See all programs →</a>
+      </div>
+      <p>Or if you want to keep thinking on it, that's fine too. Hit reply to this email with any questions. It goes straight to me.</p>
+      <p>Either way, thanks for spending five emails with me on TBL. I built this primer because I wish someone had handed it to me when I was first trying to design my own active learning materials.</p>
+      <div class="signoff">
+        Sharilyn Rennie, ND<br/>
+        MedMasters Collaborative<br/>
+        srennie@medmasterscollaborative.com
+      </div>
+    </div>
+  </div>
+
+  <!-- ============= IMPLEMENTATION NOTES ============= -->
+  <div class="implementation-notes">
+    <div class="impl-eyebrow">Implementation notes · Kajabi setup</div>
+    <h2 class="impl-title">Setting up the sequence in Kajabi.</h2>
+    
+    <div class="impl-section">
+      <h3>1. Create the opt-in form</h3>
+      <p>In Kajabi: <strong>Sales → Forms → New Form</strong>. Name it "TBL Primer Opt-In." Collect first name + email only (any more fields drops conversion). Set the post-submit redirect to a "thank you" Kajabi landing page that confirms Email 01 is on its way.</p>
+    </div>
+    
+    <div class="impl-section">
+      <h3>2. Build the Email Sequence</h3>
+      <p>In Kajabi: <strong>Marketing → Email Sequences → New Sequence</strong>. Name it "TBL Primer." Add 5 emails with delay triggers:</p>
+      <ul>
+        <li>Email 01: Send <strong>0 days</strong> after form submission</li>
+        <li>Email 02: Send <strong>1 day</strong> after Email 01</li>
+        <li>Email 03: Send <strong>2 days</strong> after Email 02 (Day 4 total)</li>
+        <li>Email 04: Send <strong>2 days</strong> after Email 03 (Day 6 total)</li>
+        <li>Email 05: Send <strong>2 days</strong> after Email 04 (Day 8 total)</li>
+      </ul>
+      <p>Link the Email Sequence to the form so a new submission triggers Email 01 automatically.</p>
+    </div>
+    
+    <div class="impl-section">
+      <h3>3. Personalization syntax</h3>
+      <p>Every email uses <strong>{{ person.first_name }}</strong>, which is Kajabi's native personalization variable. In Kajabi's email builder, set a fallback of "there" so subscribers without a first name get "Hi there" instead of "Hi {{ person.first_name }}." Test this with a personal email address that doesn't have the field populated.</p>
+    </div>
+    
+    <div class="impl-section">
+      <h3>4. Sender setup</h3>
+      <p>In Kajabi: <strong>Settings → Email Settings</strong>. Verify the sender domain <strong>medmasterscollaborative.com</strong> is authenticated (SPF, DKIM, DMARC). Set the from-name as "Sharilyn Rennie" and the reply-to as <strong>srennie@medmasterscollaborative.com</strong>. The last email explicitly invites replies, and email replies are a strong sender-reputation signal that helps future emails land in inboxes rather than promotions tabs.</p>
+    </div>
+    
+    <div class="impl-section">
+      <h3>5. Where the opt-in form lives</h3>
+      <p>Two options for connecting the primer to your GitHub-hosted homepage:</p>
+      <ul>
+        <li><strong>Option A (simplest):</strong> Create a Kajabi Landing Page at <strong>medmasterscollaborative.com/free-primer</strong>, embed the form there, and update the homepage CTAs to link to that URL.</li>
+        <li><strong>Option B:</strong> Get the Kajabi form embed code (an HTML snippet) and drop it directly into the homepage. More integrated, but requires the form to play nicely with your homepage CSS.</li>
+      </ul>
+      <p>Option A is faster to launch. Option B is cleaner long term.</p>
+    </div>
+    
+    <div class="impl-section">
+      <h3>6. Tagging for post-sequence branching</h3>
+      <p>Kajabi tags are simpler than Kit or ConvertKit, but they work. After Email 05 sends, you want to identify two groups: those who clicked through to programs.html (warm leads) and those who didn't (cold). In Kajabi's email editor, add a tag like <strong>"clicked-programs-page"</strong> to any link that goes to programs.html. After the sequence completes, you can segment future broadcasts based on that tag.</p>
+    </div>
+    
+    <div class="impl-section">
+      <h3>7. Subject line A/B testing</h3>
+      <p>Kajabi doesn't have native A/B testing for Email Sequences, but you can manually test by duplicating the sequence with a variant subject line and splitting your traffic. The Email 03 subject ("Why most 'TBL' classrooms aren't actually TBL") is the strongest pattern interrupt and the best candidate if you want to test one. The other subject lines are designed to feel like specific lessons rather than promotional emails.</p>
+    </div>
+    
+    <div class="impl-section">
+      <h3>8. After the primer ends</h3>
+      <p>Subscribers who don't book a Project Lab should move to a "broader nurture" list (monthly newsletter, new content, cohort announcements). Subscribers who DO book should go into a "founding cohort onboarding" sequence with pre-session prep materials. In Kajabi, this is handled by tagging on link clicks during the final email and setting up follow-up sequences triggered by those tags.</p>
+    </div>
+    
+    <div class="impl-section">
+      <h3>Optional Email 06</h3>
+      <p>About six weeks after cohort 1 runs, a sixth email titled "What I learned shipping cohort 1" is a strong follow-up. It can include real testimonials from founding members, what changed in your design, and a renewed CTA for the next cohort. That email writes itself once cohort 1 is done.</p>
+    </div>
+    
+  </div>
+
+</div>
+
+</body>
+</html>
