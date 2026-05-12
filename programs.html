@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programs · MedMasters Collaborative</title>
+<meta name="description" content="Three ways to build deployable TBL modules with MedMasters Collaborative. Project Lab, Project Sprint, and Annual Member.">
+
+<style>
+@import url('https://cdn.jsdelivr.net/npm/@fontsource-variable/plus-jakarta-sans/index.css');
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+body {
+  font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif;
+  background: #FFFFFF;
+  color: #0B1530;
+  line-height: 1.5;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* ====== SITE HEADER ====== */
+.site-header {
+  background: #FFFFFF;
+  padding: 32px max(40px, 5vw);
+  border-bottom: 0.5px solid rgba(11, 21, 48, 0.08);
+}
+.site-logo { display: inline-block; text-decoration: none; }
+.site-logo svg { height: 100px; width: auto; }
+
+/* ====== PAGE HERO ====== */
+.page-hero {
+  padding: 88px max(40px, 5vw) 48px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.page-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.page-headline {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin: 0 0 26px;
+  max-width: 880px;
+}
+.page-headline .accent { color: #8B3A2E; }
+.page-lede {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(11, 21, 48, 0.78);
+  max-width: 680px;
+  margin: 0;
+}
+
+/* ====== COMPARISON STRIP ====== */
+.compare {
+  max-width: 1180px;
+  margin: 0 auto 64px;
+  padding: 0 max(40px, 5vw);
+}
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 0.5px solid rgba(11, 21, 48, 0.12);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.compare-card {
+  padding: 32px 28px;
+  border-right: 0.5px solid rgba(11, 21, 48, 0.12);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+}
+.compare-card:last-child { border-right: none; }
+.compare-card:hover { background: rgba(11, 21, 48, 0.02); }
+.compare-card.featured { background: rgba(139, 58, 46, 0.025); }
+
+.compare-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding: 5px 9px;
+  border-radius: 3px;
+}
+.compare-badge.tc { background: #8B3A2E; color: #FFFFFF; }
+.compare-badge.nv { background: #0B1530; color: #FFFFFF; }
+
+.compare-tier {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.compare-name {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.compare-price {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0B1530;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.compare-price-note {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(11, 21, 48, 0.55);
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+.compare-best {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(11, 21, 48, 0.75);
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+.compare-link {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #8B3A2E;
+  padding-bottom: 3px;
+}
+
+/* ====== TIER SECTION ====== */
+.tier {
+  padding: 24px max(20px, 4vw);
+  scroll-margin-top: 64px;
+}
+.tier-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 48px;
+  background: #FFFFFF;
+  border: 0.5px solid rgba(11, 21, 48, 0.08);
+  border-radius: 16px;
+  padding: 72px 64px;
+  box-shadow: 0 2px 12px rgba(11, 21, 48, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+.tier-inner:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(11, 21, 48, 0.10);
+  border-color: rgba(11, 21, 48, 0.14);
+}
+.tier-num {
+  font-size: 84px;
+  font-weight: 800;
+  color: #8B3A2E;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+.tier-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.tier-badge {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+.tier-badge.tc { background: #8B3A2E; color: #FFFFFF; }
+.tier-badge.nv { background: #0B1530; color: #FFFFFF; }
+.tier-name {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin: 0 0 18px;
+}
+.tier-name .accent { color: #8B3A2E; }
+.tier-price {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0B1530;
+  letter-spacing: -0.015em;
+  margin-bottom: 6px;
+}
+.tier-price .alt {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(11, 21, 48, 0.5);
+  margin-left: 12px;
+}
+.tier-price-note {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(11, 21, 48, 0.65);
+  margin-bottom: 28px;
+  letter-spacing: -0.005em;
+}
+.tier-pitch {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(11, 21, 48, 0.85);
+  max-width: 640px;
+  margin: 0 0 36px;
+}
+
+/* ----- tier subsections ----- */
+.tier-block {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 0.5px solid rgba(11, 21, 48, 0.10);
+}
+.block-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.block-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.block-list li {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(11, 21, 48, 0.85);
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+}
+.block-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 12px;
+  height: 1.5px;
+  background: #8B3A2E;
+}
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 4px;
+}
+.flow-item {
+  padding: 0;
+}
+.flow-num {
+  font-size: 10px;
+  font-weight: 700;
+  color: #8B3A2E;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.flow-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0B1530;
+  margin-bottom: 6px;
+  letter-spacing: -0.005em;
+}
+.flow-body {
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(11, 21, 48, 0.7);
+}
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 4px;
+}
+.fit-col h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+.fit-col.yes h4 { color: #8B3A2E; }
+.fit-col.no h4 { color: rgba(11, 21, 48, 0.4); }
+.fit-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.fit-col li {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(11, 21, 48, 0.82);
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+.fit-col.yes li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #8B3A2E;
+  font-weight: 700;
+}
+.fit-col.no li::before {
+  content: "×";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(11, 21, 48, 0.3);
+  font-weight: 700;
+}
+
+.tier-cta {
+  margin-top: 44px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.tier-btn {
+  display: inline-block;
+  background: #8B3A2E;
+  color: #FFFFFF;
+  padding: 16px 28px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.tier-btn:hover { background: #a04539; }
+.tier-cta-note {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(11, 21, 48, 0.6);
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+/* placeholder hint */
+.placeholder-hint {
+  background: rgba(201, 161, 74, 0.10);
+  border-left: 3px solid #C9A14A;
+  padding: 14px 18px;
+  margin: 12px 0 24px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(11, 21, 48, 0.8);
+  border-radius: 0 4px 4px 0;
+}
+.placeholder-hint strong {
+  color: #8B3A2E;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 10px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ====== FINAL CTA SECTION (dark) ====== */
+.final-cta {
+  background: #060A18;
+  padding: 88px max(40px, 5vw);
+  color: #F5F1E8;
+  text-align: center;
+}
+.final-cta-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #C9A14A;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.final-cta-headline {
+  font-size: 38px;
+  font-weight: 800;
+  color: #F5F1E8;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 auto 22px;
+  max-width: 640px;
+}
+.final-cta-headline .accent { color: #8B3A2E; }
+.final-cta-sub {
+  font-size: 16px;
+  font-weight: 400;
+  color: #F5F1E8;
+  opacity: 0.75;
+  line-height: 1.6;
+  margin: 0 auto 36px;
+  max-width: 520px;
+}
+.final-cta-btn {
+  display: inline-block;
+  background: #8B3A2E;
+  color: #F5F1E8;
+  padding: 16px 32px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* ====== SITE FOOTER (white) ====== */
+.site-footer {
+  background: #FFFFFF;
+  color: #0B1530;
+  padding: 56px max(40px, 5vw);
+  border-top: 0.5px solid rgba(11, 21, 48, 0.10);
+}
+.site-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-logo svg { height: 60px; width: auto; }
+.footer-nav {
+  display: flex;
+  gap: 24px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.footer-nav a {
+  color: #8B3A2E;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid currentColor;
+}
+.footer-nav a:hover { color: #0B1530; }
+.footer-copyright {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(11, 21, 48, 0.5);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ====== MOBILE ====== */
+@media (max-width: 800px) {
+  .page-headline { font-size: 38px; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .compare-card { border-right: none; border-bottom: 0.5px solid rgba(11, 21, 48, 0.12); }
+  .compare-card:last-child { border-bottom: none; }
+  .tier-inner { 
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    padding: 40px 28px;
+  }
+  .tier-num { font-size: 56px; }
+  .tier-name { font-size: 32px; }
+  .flow-grid { grid-template-columns: 1fr; }
+  .fit-grid { grid-template-columns: 1fr; }
+  .site-logo svg { height: 60px; }
+  .footer-logo svg { height: 44px; }
+  .site-footer-inner { flex-direction: column; align-items: flex-start; }
+  .final-cta-headline { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============= SITE HEADER ============= -->
+<header class="site-header">
+  <a href="index.html" class="site-logo" aria-label="MedMasters Collaborative home">
+    <svg viewBox="0 0 720 200">
+      <g transform="translate(0, 18)">
+        <g transform="translate(60, 0) rotate(8 0 130)"><circle cx="0" cy="20" r="10" fill="#0B1530"/><path d="M 0,32 C -10,32 -16,36 -16,42 C -16,55 -13,68 -11,82 C -10,100 -12,118 -14,130 L 14,130 C 12,118 10,100 11,82 C 13,68 16,55 16,42 C 16,36 10,32 0,32 Z" fill="#0B1530"/></g>
+        <g transform="translate(100, 0)"><circle cx="0" cy="10" r="11" fill="#8B3A2E"/><path d="M 0,22 C -11,22 -17,26 -17,34 C -17,52 -14,70 -12,86 C -11,108 -13,122 -15,132 L 15,132 C 13,122 11,108 12,86 C 14,70 17,52 17,34 C 17,26 11,22 0,22 Z" fill="#8B3A2E"/></g>
+        <g transform="translate(140, 0) rotate(-8 0 130)"><circle cx="0" cy="20" r="10" fill="#C9A14A"/><path d="M 0,32 C -10,32 -16,36 -16,42 C -16,55 -13,68 -11,82 C -10,100 -12,118 -14,130 L 14,130 C 12,118 10,100 11,82 C 13,68 16,55 16,42 C 16,36 10,32 0,32 Z" fill="#C9A14A"/></g>
+      </g>
+      <g transform="translate(240, 0)">
+        <text x="0" y="118" font-size="80" font-weight="800" letter-spacing="-2" font-family="'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif"><tspan fill="#0B1530">Med</tspan><tspan fill="#8B3A2E">Masters</tspan></text>
+        <text x="0" y="165" font-size="22" font-weight="700" letter-spacing="6" fill="#0B1530" opacity="0.78" font-family="'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif">COLLABORATIVE</text>
+      </g>
+    </svg>
+  </a>
+</header>
+
+<!-- ============= PAGE HERO ============= -->
+<section class="page-hero">
+  <div class="page-eyebrow">Programs</div>
+  <h1 class="page-headline">Three ways to build your first <span class="accent">TBL module</span>.</h1>
+  <p class="page-lede">Start with a single 90-minute session, commit to a focused 30-day sprint, or partner across the academic year. Every path produces deployable, Canvas-ready Team-Based Learning artifacts you keep and reuse.</p>
+</section>
+
+<!-- ============= COMPARISON STRIP ============= -->
+<section class="compare">
+  <div class="compare-grid">
+    
+    <a href="#lab" class="compare-card">
+      <div class="compare-tier">01 · Entry</div>
+      <div class="compare-name">Project Lab</div>
+      <div class="compare-price">$147</div>
+      <div class="compare-price-note">$87 alumni and founding cohort</div>
+      <div class="compare-best">One 90-minute live session. Build a single module from your existing content.</div>
+      <span class="compare-link">See details →</span>
+    </a>
+    
+    <a href="#sprint" class="compare-card featured">
+      <span class="compare-badge tc">Recommended</span>
+      <div class="compare-tier">02 · Focused</div>
+      <div class="compare-name">Project Sprint</div>
+      <div class="compare-price">$1,995</div>
+      <div class="compare-price-note">30 days, four weekly group calls</div>
+      <div class="compare-best">A short structured cohort experience. Build one module with peer review.</div>
+      <span class="compare-link">See details →</span>
+    </a>
+    
+    <a href="#annual" class="compare-card">
+      <span class="compare-badge nv">Best value</span>
+      <div class="compare-tier">03 · System</div>
+      <div class="compare-name">Annual Member</div>
+      <div class="compare-price">$5,995</div>
+      <div class="compare-price-note">12 months, 10 build cycles, ongoing access</div>
+      <div class="compare-best">Build your full TBL system across the academic year.</div>
+      <span class="compare-link">See details →</span>
+    </a>
+    
+  </div>
+</section>
+
+<!-- ============= TIER 01: PROJECT LAB ============= -->
+<section id="lab" class="tier">
+  <div class="tier-inner">
+    <div class="tier-num">01</div>
+    <div>
+      <div class="tier-eyebrow">Entry tier · 90 minutes</div>
+      <h2 class="tier-name">Project <span class="accent">Lab</span>.</h2>
+      <div class="tier-price">$147 <span class="alt">/ $87 alumni and founding cohort</span></div>
+      <div class="tier-price-note">One-time payment. Refundable up to 48 hours before your session.</div>
+      
+      <p class="tier-pitch">A single 90-minute live session, conducted virtually. You bring your course learning objectives and document links. We pair you with a TBL expert and the AI hub tool to build one deployable module together, in real time.</p>
+      
+      <div class="tier-block">
+        <div class="block-label">What you receive</div>
+        <ul class="block-list">
+          <li>A deployable interactive HTML artifact with a live URL ready for Canvas</li>
+          <li>An accessible companion document with full text content and screen-reader support</li>
+          <li>The underlying source files, yours to host and modify forever</li>
+          <li>A recording of the session for your reference</li>
+        </ul>
+      </div>
+      
+      <div class="tier-block">
+        <div class="block-label">How the 90 minutes flows</div>
+        <div class="flow-grid">
+          <div class="flow-item">
+            <div class="flow-num">Minutes 1 to 15</div>
+            <div class="flow-title">Bring your content.</div>
+            <div class="flow-body">We review your learning objectives and the document links you brought. We agree on scope: one focused module, ready to deploy by the end of the session.</div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">Minutes 15 to 45</div>
+            <div class="flow-title">Refine the inputs.</div>
+            <div class="flow-body">We work together to translate your raw content into structured prompts the AI hub tool can use. You see exactly how the prompting works, in real time.</div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">Minutes 45 to 75</div>
+            <div class="flow-title">Build the artifact.</div>
+            <div class="flow-body">The AI hub tool generates the interactive HTML, the companion document, and the source files. We review the output together and make adjustments live.</div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">Minutes 75 to 90</div>
+            <div class="flow-title">Ship it.</div>
+            <div class="flow-body">We publish your artifact to a live URL and walk through Canvas embed steps. You leave the session with a working module, not a draft.</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tier-block">
+        <div class="block-label">First session focus</div>
+        <p class="tier-pitch" style="margin-bottom: 14px;">The launch Project Lab is the <strong>Study Guide Reimaginer</strong>: convert an existing study guide into an interactive, peer-accountable TBL module. Future Project Labs will include Application Exercise Builder, Clinical Case Composer, and Readiness Assurance Engine.</p>
+      </div>
+      
+      <div class="tier-block">
+        <div class="block-label">Who Project Lab is for</div>
+        <div class="fit-grid">
+          <div class="fit-col yes">
+            <h4>Good fit</h4>
+            <ul>
+              <li>Faculty curious about TBL who want a low-commitment first step</li>
+              <li>You have one specific course unit you want to convert</li>
+              <li>You want to see how the AI hub tool works before committing further</li>
+              <li>You can spend 90 focused minutes with us</li>
+            </ul>
+          </div>
+          <div class="fit-col no">
+            <h4>Not the right fit if</h4>
+            <ul>
+              <li>You want to redesign an entire course in one sitting</li>
+              <li>You need peer cohort support and weekly accountability</li>
+              <li>You want ongoing coaching beyond the single session</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tier-cta">
+        <a href="mailto:srennie@medmasterscollaborative.com?subject=Project%20Lab%20enrollment" class="tier-btn">Email to enroll →</a>
+        <div class="tier-cta-note">Sessions are scheduled individually. Founding cohort opens Fall 2026.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= TIER 02: PROJECT SPRINT ============= -->
+<section id="sprint" class="tier">
+  <div class="tier-inner">
+    <div class="tier-num">02</div>
+    <div>
+      <div class="tier-eyebrow">Focused cohort · 30 days <span class="tier-badge tc">Recommended</span></div>
+      <h2 class="tier-name">Project <span class="accent">Sprint</span>.</h2>
+      <div class="tier-price">$1,995</div>
+      <div class="tier-price-note">One-time payment. Refundable within 7 days before the Sprint begins.</div>
+      
+      <p class="tier-pitch">A focused 30-day cohort program. Four weekly group coaching calls, peer review on your build, full template access, and one complete TBL module ready to deploy by the end of the Sprint.</p>
+      
+      <div class="placeholder-hint">
+        <strong>Needs your input</strong>
+        The four-week call structure below is a reasonable default. Edit the agenda, peer review format, and what's in the template library to match your actual program design.
+      </div>
+      
+      <div class="tier-block">
+        <div class="block-label">What you receive</div>
+        <ul class="block-list">
+          <li>Four 60-minute group coaching calls, one per week</li>
+          <li>One fully built, deployable TBL module by Day 30</li>
+          <li>Peer review from cohort members at the midpoint and final stages</li>
+          <li>Full access to the AI hub tools used in the build: Study Guide Reimaginer, Application Exercise Builder, Clinical Case Composer, Readiness Assurance Engine</li>
+          <li>Recordings of all calls for your reference</li>
+          <li>A private cohort communication channel for between-call questions</li>
+        </ul>
+      </div>
+      
+      <div class="tier-block">
+        <div class="block-label">Week by week</div>
+        <div class="flow-grid">
+          <div class="flow-item">
+            <div class="flow-num">Week 01</div>
+            <div class="flow-title">Scope and inputs.</div>
+            <div class="flow-body">Group call to define your module scope. Submit learning objectives and source documents. Peer review of each other's scope statements.</div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">Week 02</div>
+            <div class="flow-title">First build.</div>
+            <div class="flow-body">Group call walks through the AI hub tool. Each member generates a first-draft artifact. Asynchronous peer feedback during the week.</div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">Week 03</div>
+            <div class="flow-title">Refine and accessibility.</div>
+            <div class="flow-body">Group call focused on accessibility, Canvas embedding, and refining application exercises. Peer review pairs swap drafts for critique.</div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">Week 04</div>
+            <div class="flow-title">Ship and reflect.</div>
+            <div class="flow-body">Final group call. Each member publishes their finished artifact. Cohort retrospective on what worked and what to apply to the next module.</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tier-block">
+        <div class="block-label">Who Project Sprint is for</div>
+        <div class="fit-grid">
+          <div class="fit-col yes">
+            <h4>Good fit</h4>
+            <ul>
+              <li>Faculty who learn well in a peer cohort</li>
+              <li>You have one specific module to build in the next 30 days</li>
+              <li>You want feedback from other faculty mid-build</li>
+              <li>You can commit 3 to 5 hours per week for four weeks</li>
+            </ul>
+          </div>
+          <div class="fit-col no">
+            <h4>Not the right fit if</h4>
+            <ul>
+              <li>You need flexibility on timing beyond a fixed 30-day window</li>
+              <li>You want ongoing support across the academic year</li>
+              <li>Peer review group format doesn't match how you work best</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tier-cta">
+        <a href="mailto:srennie@medmasterscollaborative.com?subject=Project%20Sprint%20enrollment" class="tier-btn">Email to enroll →</a>
+        <div class="tier-cta-note">Sprints run on a fixed cohort schedule. Next Sprint dates announced to the founding cohort first.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= TIER 03: ANNUAL MEMBER ============= -->
+<section id="annual" class="tier">
+  <div class="tier-inner">
+    <div class="tier-num">03</div>
+    <div>
+      <div class="tier-eyebrow">Full system · 12 months <span class="tier-badge nv">Best value</span></div>
+      <h2 class="tier-name">Annual <span class="accent">Member</span>.</h2>
+      <div class="tier-price">$5,995</div>
+      <div class="tier-price-note">Annual payment. Refundable within 7 days before the membership year begins.</div>
+      
+      <p class="tier-pitch">A 12-month partnership covering 10 monthly module-build cycles aligned to the academic calendar. Build your entire TBL system across a year. Plus exclusive access to the <strong>Member Library</strong>: a curated collection of completed TBL modules built monthly by Sharilyn across anatomy, physiology, and the medical sciences. Members can optionally share their own builds, but are never required to.</p>
+      
+      <div class="tier-block">
+        <div class="block-label">What you receive</div>
+        <ul class="block-list">
+          <li><strong>Member Library access.</strong> Sharilyn builds and curates new TBL modules monthly across anatomy, physiology, and the medical sciences. Browse, adapt, or use as a reference. Members may optionally contribute their own builds, but it's never required. Organized by topic, discipline, and TBL component (readiness assurance, application exercise, rubric, etc.).</li>
+          <li>Ten monthly module-build cycles aligned to the academic calendar (two break months for winter and summer recovery)</li>
+          <li>One complete deployable TBL module each active month</li>
+          <li>Monthly group coaching call plus asynchronous build support</li>
+          <li>A 1:1 quarterly check-in with Sharilyn to review trajectory and curriculum mapping</li>
+          <li>Full access to all AI hub tools, plus first access to new tools as they release</li>
+          <li>Priority response on between-cycle questions</li>
+          <li>Member community access for collaboration, shared resources, and ongoing accountability</li>
+        </ul>
+      </div>
+      
+      <div class="tier-block">
+        <div class="block-label">Inside a monthly build cycle</div>
+        <div class="flow-grid">
+          <div class="flow-item">
+            <div class="flow-num">Week 01</div>
+            <div class="flow-title">Scope and plan.</div>
+            <div class="flow-body">Pick your next module. Submit learning objectives and supporting documents. Confirm scope with the cohort and Sharilyn.</div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">Week 02</div>
+            <div class="flow-title">Group call and build.</div>
+            <div class="flow-body">Monthly group coaching call (90 minutes). Build the artifact alongside peers using the AI hub tool.</div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">Week 03</div>
+            <div class="flow-title">Refine and review.</div>
+            <div class="flow-body">Asynchronous peer review on draft artifacts. Office hours available for blocked moments. Accessibility check.</div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">Week 04</div>
+            <div class="flow-title">Ship and reflect.</div>
+            <div class="flow-body">Publish the final artifact. Brief asynchronous reflection. Pick the next month's module focus.</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tier-block">
+        <div class="block-label">Who Annual Member is for</div>
+        <div class="fit-grid">
+          <div class="fit-col yes">
+            <h4>Good fit</h4>
+            <ul>
+              <li>Faculty rebuilding an entire course or course sequence around TBL</li>
+              <li>You want access to a growing library of TBL modules across disciplines for inspiration and adaptation</li>
+              <li>You want sustained partnership across an academic year</li>
+              <li>You value peer community and ongoing accountability</li>
+              <li>You want first access to new Project Labs as they release</li>
+            </ul>
+          </div>
+          <div class="fit-col no">
+            <h4>Not the right fit if</h4>
+            <ul>
+              <li>You only have one specific module to build right now</li>
+              <li>You prefer fully independent work without cohort structure</li>
+              <li>Your institutional schedule can't accommodate monthly cycles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tier-cta">
+        <a href="mailto:srennie@medmasterscollaborative.com?subject=Annual%20Member%20inquiry" class="tier-btn">Email Sharilyn to apply →</a>
+        <div class="tier-cta-note">Annual Membership starts with a 30-minute conversation with Sharilyn to confirm fit. Limited seats per year.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= FINAL CTA ============= -->
+<section class="final-cta">
+  <div class="final-cta-eyebrow">Not sure yet?</div>
+  <h2 class="final-cta-headline">Start with the <span class="accent">free TBL primer</span>.</h2>
+  <p class="final-cta-sub">Five short emails on Team-Based Learning fundamentals, plus first access to the founding Project Lab cohort opening Fall 2026.</p>
+  <a href="index.html#primer" class="final-cta-btn">Get the primer →</a>
+</section>
+
+<!-- ============= SITE FOOTER ============= -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <a href="index.html" class="footer-logo" aria-label="MedMasters Collaborative home">
+      <svg viewBox="0 0 720 200">
+        <g transform="translate(0, 18)">
+          <g transform="translate(60, 0) rotate(8 0 130)"><circle cx="0" cy="20" r="10" fill="#0B1530"/><path d="M 0,32 C -10,32 -16,36 -16,42 C -16,55 -13,68 -11,82 C -10,100 -12,118 -14,130 L 14,130 C 12,118 10,100 11,82 C 13,68 16,55 16,42 C 16,36 10,32 0,32 Z" fill="#0B1530"/></g>
+          <g transform="translate(100, 0)"><circle cx="0" cy="10" r="11" fill="#8B3A2E"/><path d="M 0,22 C -11,22 -17,26 -17,34 C -17,52 -14,70 -12,86 C -11,108 -13,122 -15,132 L 15,132 C 13,122 11,108 12,86 C 14,70 17,52 17,34 C 17,26 11,22 0,22 Z" fill="#8B3A2E"/></g>
+          <g transform="translate(140, 0) rotate(-8 0 130)"><circle cx="0" cy="20" r="10" fill="#C9A14A"/><path d="M 0,32 C -10,32 -16,36 -16,42 C -16,55 -13,68 -11,82 C -10,100 -12,118 -14,130 L 14,130 C 12,118 10,100 11,82 C 13,68 16,55 16,42 C 16,36 10,32 0,32 Z" fill="#C9A14A"/></g>
+        </g>
+        <g transform="translate(240, 0)">
+          <text x="0" y="118" font-size="80" font-weight="800" letter-spacing="-2" font-family="'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif"><tspan fill="#0B1530">Med</tspan><tspan fill="#8B3A2E">Masters</tspan></text>
+          <text x="0" y="165" font-size="22" font-weight="700" letter-spacing="6" fill="#0B1530" opacity="0.78" font-family="'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif">COLLABORATIVE</text>
+        </g>
+      </svg>
+    </a>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="https://www.medmasterscollaborative.com/medmasters-collaborative-privacy-policy">Privacy</a>
+      <a href="https://www.medmasterscollaborative.com/medmasters-collaborative-terms-of-service">Terms</a>
+    </nav>
+    <div class="footer-copyright">© 2026 MedMasters Collaborative LLC</div>
+  </div>
+</footer>
+
+</body>
+</html>
